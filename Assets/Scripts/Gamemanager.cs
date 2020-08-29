@@ -3,7 +3,8 @@ using UnityEngine.Advertisements;
 
 public class Gamemanager : MonoBehaviour
 {
-
+    [SerializeField]
+    private HelixController helixController;
     public int bestScore;
     public int score;
 
@@ -26,9 +27,12 @@ public class Gamemanager : MonoBehaviour
     }
     public void NextLevel()
     {
-        currentLavel++;
+        if (currentLavel < helixController.allStages.Count)
+        {
+            currentLavel++;
+            FindObjectOfType<HelixController>().LoadStage(currentLavel);
+        }
         FindObjectOfType<BallController>().ResetBall();
-        FindObjectOfType<HelixController>().LoadStage(currentLavel);
     }
     public void RestartLevel()
     {

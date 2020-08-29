@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ public class Platform
 [CreateAssetMenu(fileName = "New Stage")]
 public class Stage : ScriptableObject
 {
+    public Color helixCylinderColor = Color.white;
     public Color stageBackgroundColor = Color.white;
     public Color stageLevelPartColor = Color.white;
     public Color stageBallColor = Color.white;

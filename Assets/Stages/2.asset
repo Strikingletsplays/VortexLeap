@@ -12,27 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574ca7c27e29ac4b91ac2c4fdc9337f, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  stageBackgroundColor: {r: 0.18382877, g: 0.254717, b: 0.19307506, a: 1}
-  stageLevelPartColor: {r: 0, g: 0, b: 0, a: 1}
-  stageBallColor: {r: 1, g: 0.9372549, b: 0, a: 1}
+  helixCylinderColor: {r: 0.90196085, g: 0.9058824, b: 0.7019608, a: 1}
+  stageBackgroundColor: {r: 0.8745099, g: 0.7960785, b: 0.74509805, a: 1}
+  stageLevelPartColor: {r: 0.34901962, g: 0.36862746, b: 0.5568628, a: 1}
+  stageBallColor: {r: 0.43529415, g: 0.8235295, b: 0.9725491, a: 1}
   Platforms:
   - partCount: 8
-    deathPartCount: 2
+    deathPartCount: 3
+  - partCount: 8
+    deathPartCount: 3
+  - partCount: 7
+    deathPartCount: 3
+  - partCount: 9
+    deathPartCount: 4
+  - partCount: 7
+    deathPartCount: 3
+  - partCount: 9
+    deathPartCount: 5
+  - partCount: 6
+    deathPartCount: 4
+  - partCount: 9
+    deathPartCount: 6
+  - partCount: 7
+    deathPartCount: 5
+  - partCount: 9
+    deathPartCount: 4
   - partCount: 8
     deathPartCount: 2
   - partCount: 7
-    deathPartCount: 2
-  - partCount: 9
     deathPartCount: 3
-  - partCount: 7
-    deathPartCount: 2
-  - partCount: 9
+  - partCount: 8
     deathPartCount: 4
-  - partCount: 6
-    deathPartCount: 3
   - partCount: 9
-    deathPartCount: 4
-  - partCount: 7
     deathPartCount: 3
-  - partCount: 9
+  - partCount: 10
     deathPartCount: 3

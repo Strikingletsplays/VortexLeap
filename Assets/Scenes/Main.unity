@@ -210,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67301273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.27, z: -1.4}
+  m_LocalPosition: {x: 0, y: 5.5, z: -1.4}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 1699420374}
@@ -225,7 +225,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67301273}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b5fea554b47f544a779a4852470772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _impulseForce: 5
+  _impulseForce: 10
   perfectPass: 0
   isSuperSpeedActive: 0
 --- !u!1 &209790322
@@ -574,7 +574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 7, z: -6.5}
+  m_LocalPosition: {x: 0, y: 8, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -642,6 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424630cbe9ea8214584b292b20e1f7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  helixController: {fileID: 1019719865}
   bestScore: 0
   score: 0
   currentLavel: 0
@@ -697,7 +698,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: db09966a535087b458aeb5e4a50cfb07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -734,8 +735,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019719860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
-  m_LocalScale: {x: 2, y: 20, z: 2}
+  m_LocalPosition: {x: 0, y: -20.05, z: 0}
+  m_LocalScale: {x: 2, y: 30, z: 2}
   m_Children:
   - {fileID: 979415525}
   - {fileID: 1539277320}
@@ -762,6 +763,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d0a6341e19a8cb41a71feff785811e6, type: 2}
   - {fileID: 11400000, guid: 4abc6947e499d054bb31f7081ef6a52a, type: 2}
   - {fileID: 11400000, guid: 36dc3e39f6d234246b42626f9208e08b, type: 2}
+  - {fileID: 11400000, guid: 59ac77d4fceec2d4f857b733230e402b, type: 2}
+  - {fileID: 11400000, guid: 497ede32869d15841ad22740d3131ad8, type: 2}
 --- !u!1 &1274591558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1349,7 @@ PrefabInstance:
     - target: {fileID: 5575061784588326416, guid: cea4df82ec2406c419c00e0810929768,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.915
+      value: 0.928
       objectReference: {fileID: 0}
     - target: {fileID: 5575061784588326416, guid: cea4df82ec2406c419c00e0810929768,
         type: 3}
@@ -1397,6 +1400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HelixPlatformTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575061784588326417, guid: cea4df82ec2406c419c00e0810929768,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea4df82ec2406c419c00e0810929768, type: 3}

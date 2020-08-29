@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
@@ -8,8 +6,9 @@ public class BallController : MonoBehaviour
 
     //RigidBody of Ball
     private Rigidbody _ballRb;
+
     [SerializeField]
-    private float _impulseForce = 5f;
+    private float _impulseForce = 10f;
     private Vector3 _startPos;
     public int perfectPass = 0;
     public bool isSuperSpeedActive;
@@ -46,7 +45,7 @@ public class BallController : MonoBehaviour
         }
 
 
-        //adding force to ball
+        //adding force to ball UP (bounce up)
         _ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(Vector3.up * _impulseForce, ForceMode.Impulse);
 

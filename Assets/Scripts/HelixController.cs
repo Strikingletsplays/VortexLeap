@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class HelixController : MonoBehaviour
 {
+    //For Helix Rotation
     private Vector2 _lastTapPos;
     private Vector3 _startRotation;
 
-    //edges of Helix
+    //Edges of Helix
     public Transform topTransform;
     public Transform goalTransform;
 
     public GameObject helicPlatformPrefab;
 
+    //To load next stages
     public List<Stage> allStages = new List<Stage>();
 
     private float helixDistance;
@@ -42,7 +43,7 @@ public class HelixController : MonoBehaviour
             _lastTapPos = curTapPos;
 
             //Rotate Helix
-            transform.Rotate(Vector3.up * delta);
+            transform.Rotate(Vector3.up * delta * 0.3f);
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -58,6 +59,11 @@ public class HelixController : MonoBehaviour
             Debug.LogError("No stage " + stageNumber + " found in allStages List. Are all stages assined in the list?");
             return;
         }
+        //Setting the colorTrail color
+        FindObjectOfType<BallController>().GetComponentInChildren<TrailRenderer>().startColor = allStages[stageNumber].stageBallColor;
+        FindObjectOfType<BallController>().GetComponentInChildren<TrailRenderer>().endColor = allStages[stageNumber].stageBallColor;
+        //Seting the Helix Cylinder color
+        FindObjectOfType<HelixController>().GetComponent<Renderer>().material.color = allStages[stageNumber].helixCylinderColor;
         //CHange color of background of the stage
         Camera.main.backgroundColor = allStages[stageNumber].stageBackgroundColor;
         //Change color of the ball in stage
@@ -83,11 +89,12 @@ public class HelixController : MonoBehaviour
             platform.transform.localPosition = new Vector3(0, spawnPosY, 0);
             spawnedPlatforms.Add(platform);
 
-            //Creating the Gaps
+            //Variables to disable platform parts
             int partsToDisable = 12 - stage.Platforms[i].partCount;
             List<GameObject> disabledParts = new List<GameObject>();
 
-            while(disabledParts.Count < partsToDisable)
+            //Disabling parts in Platforms
+            while (disabledParts.Count < partsToDisable)
             {
                 GameObject randomPart = platform.transform.GetChild(Random.Range(0, platform.transform.childCount)).gameObject;
                 if (!disabledParts.Contains(randomPart))
@@ -97,7 +104,7 @@ public class HelixController : MonoBehaviour
                 }
             }
 
-            //Creating the Death Parts
+            //Coloring the left over parts with the stage color.
             List<GameObject> leftParts = new List<GameObject>();
 
             foreach(Transform t in platform.transform)
@@ -111,11 +118,12 @@ public class HelixController : MonoBehaviour
             //Creating the Death Parts
             List<GameObject> deathParts = new List<GameObject>();
 
-            while(deathParts.Count < stage.Platforms[i].deathPartCount)
+            while(deathParts.Count < stage.Platforms[i].deathPartCount && i != 0)
             {
                 GameObject randomPart = leftParts[Random.Range(0, leftParts.Count)];
                 if (!deathParts.Contains(randomPart))
                 {
+                    //Adding the Script "DeathPart" to the random part
                     randomPart.gameObject.AddComponent<DeathPart>();
                     deathParts.Add(randomPart);
                 }
