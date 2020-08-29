@@ -9,15 +9,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI textBest;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        textBest.text = "Best : " + Gamemanager.singleton.bestScore;
-    }
-
     // Update is called once per frame
     void Update()
     {
+        textBest.text = "Best : " + Gamemanager.singleton.bestScore;
         textScore.text = Gamemanager.singleton.score.ToString();
     }
 }
