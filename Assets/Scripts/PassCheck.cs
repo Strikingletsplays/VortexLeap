@@ -6,7 +6,7 @@ public class PassCheck : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLavel);
+        Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLavel+1);
         FindObjectOfType<BallController>().perfectPass++;
         //Destroy platform
         Destroy();
