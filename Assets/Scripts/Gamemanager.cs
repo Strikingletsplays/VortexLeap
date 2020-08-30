@@ -32,6 +32,7 @@ public class Gamemanager : MonoBehaviour
             currentLavel++;
             FindObjectOfType<HelixController>().LoadStage(currentLavel);
         }
+        singleton.score = 0;
         FindObjectOfType<BallController>().ResetBall();
     }
     public void RestartLevel()

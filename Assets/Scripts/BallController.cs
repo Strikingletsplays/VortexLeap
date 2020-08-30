@@ -58,6 +58,7 @@ public class BallController : MonoBehaviour
 
     private void Update()
     {
+        //check for superspeed!
         if(perfectPass >= 3 && !isSuperSpeedActive)
         {
             isSuperSpeedActive = true;
@@ -72,5 +73,7 @@ public class BallController : MonoBehaviour
     public void ResetBall()
     {
         transform.position = _startPos;
+        //Reset Camera to starting position
+        FindObjectOfType<Camera>().transform.position = new Vector3 (0,8,-7);
     }
 }
