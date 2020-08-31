@@ -23,6 +23,5 @@ public class UIManager : MonoBehaviour
         textBest.text = "Best : " + Gamemanager.singleton.bestScore;
         textScore.text = Gamemanager.singleton.score.ToString();
         levelProgression.value = (float) (Gamemanager.singleton.score / (Gamemanager.singleton.currentLavel + 1)) / numberOfPlatforms;
-        Debug.Log((float)(Gamemanager.singleton.score / (Gamemanager.singleton.currentLavel + 1)) / numberOfPlatforms);
     }
 }
