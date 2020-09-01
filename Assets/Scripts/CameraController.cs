@@ -1,31 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private BallController target;
-
-    [SerializeField]
-    private float cameraSpeed;
-    private float offset;
-
-    void Awake()
-    {
-        offset = transform.position.y - target.transform.position.y ;
-    }
+    private HelixController helix;
+    public int platformCounter = 0;
+    private Vector3 targetPosition;
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        Vector3 curPos = transform.position;
-        if(curPos.y - target.transform.position.y > 3)
+        if (helix.spawnedPlatforms[platformCounter])
         {
-            //setting new (y) position to target position
-            curPos.y = target.transform.position.y + offset;
-            //Smouthly Lerp
-            transform.position = Vector3.Lerp(transform.position, curPos, Time.deltaTime * cameraSpeed);
+            targetPosition = new Vector3(transform.position.x, helix.spawnedPlatforms[platformCounter].transform.position.y + 3, transform.position.z);
         }
+        //move to new platform
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
     }
 }

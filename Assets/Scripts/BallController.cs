@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.ComponentModel.Design.Serialization;
+using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
@@ -8,16 +10,22 @@ public class BallController : MonoBehaviour
     private Rigidbody _ballRb;
 
     [SerializeField]
-    private float _impulseForce = 10f;
+    private float _impulseForce = 5f;
+
+    //For restarting to startPosition
     private Vector3 _startPos;
     public int perfectPass = 0;
     public bool isSuperSpeedActive;
+
+    //Camera counter (platform reset)
+    private CameraController camera;
 
 
     void Awake()
     {
         _startPos = transform.position;
         _ballRb = GetComponent<Rigidbody>();
+        camera = FindObjectOfType<CameraController>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,7 +38,19 @@ public class BallController : MonoBehaviour
         {
             if (!collision.transform.GetComponent<Goal>())
             {
+                //change platform collor to Ball color Before destroy
+                for(int i=0; i < collision.transform.parent.childCount; i++)
+                {
+                    collision.transform.parent.GetChild(i).GetComponent<Renderer>().material.color = this.gameObject.GetComponent<Renderer>().material.color;
+                    collision.transform.parent.GetChild(i).GetComponent<MeshCollider>().enabled = false;
+                    collision.transform.parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
+                    collision.transform.parent.GetChild(i).GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.VelocityChange);
+                }
                 Destroy(collision.transform.parent.gameObject, 0.3f);
+                //Increse camera platform counter
+                StartCoroutine(moveCameraCounter());
+                //Add SCORE!!           (Later make Extra score due to superspeed!!)
+                Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLavel + 1);
                 //make particles part!
             }
         }
@@ -75,5 +95,13 @@ public class BallController : MonoBehaviour
         transform.position = _startPos;
         //Reset Camera to starting position
         FindObjectOfType<Camera>().transform.position = new Vector3 (0,8,-7);
+        //Reset platform counter
+        camera.platformCounter = 0;
+    }
+    IEnumerator moveCameraCounter()
+    {
+        yield return new WaitForSeconds(1);
+        camera.platformCounter++;
+        yield return null;
     }
 }

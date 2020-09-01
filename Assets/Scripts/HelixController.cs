@@ -17,7 +17,7 @@ public class HelixController : MonoBehaviour
     public List<Stage> allStages = new List<Stage>();
 
     private float helixDistance;
-    private List<GameObject> spawnedPlatforms = new List<GameObject>();
+    public List<GameObject> spawnedPlatforms = new List<GameObject>();
 
     void Awake()
     {
@@ -77,13 +77,16 @@ public class HelixController : MonoBehaviour
         {
             Destroy(go);
         }
+        //Recreate the platform list
+        spawnedPlatforms = new List<GameObject>();
 
-        //create new platforms
+        //create new platforms variables
         float LevelDistance = helixDistance / stage.Platforms.Count;
         float spawnPosY = topTransform.localPosition.y;
 
         for (int i = 0; i< stage.Platforms.Count; i++)
         {
+            //create platforms
             spawnPosY -= LevelDistance;
             GameObject platform = Instantiate(helicPlatformPrefab, transform);
             platform.transform.localPosition = new Vector3(0, spawnPosY, 0);
