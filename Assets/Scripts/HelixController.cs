@@ -54,11 +54,12 @@ public class HelixController : MonoBehaviour
     {
         Stage stage = allStages[Mathf.Clamp(stageNumber, 0, allStages.Count - 1)];
 
-        if(stage == null)
+        if (stage == null)
         {
             Debug.LogError("No stage " + stageNumber + " found in allStages List. Are all stages assined in the list?");
             return;
         }
+        //SETTING COLORS FROM STAGE FILE
         //Setting the colorTrail color
         FindObjectOfType<BallController>().GetComponentInChildren<TrailRenderer>().startColor = allStages[stageNumber].stageBallColor;
         FindObjectOfType<BallController>().GetComponentInChildren<TrailRenderer>().endColor = allStages[stageNumber].stageBallColor;
@@ -69,11 +70,12 @@ public class HelixController : MonoBehaviour
         //Change color of the ball in stage
         FindObjectOfType<BallController>().GetComponent<Renderer>().material.color = allStages[stageNumber].stageBallColor;
 
+
         //Reset helix rotation
         transform.localEulerAngles = _startRotation;
 
         //destroy old lvl if there exist
-        foreach(GameObject go in spawnedPlatforms)
+        foreach (GameObject go in spawnedPlatforms)
         {
             Destroy(go);
         }
@@ -84,7 +86,7 @@ public class HelixController : MonoBehaviour
         float LevelDistance = helixDistance / stage.Platforms.Count;
         float spawnPosY = topTransform.localPosition.y;
 
-        for (int i = 0; i< stage.Platforms.Count; i++)
+        for (int i = 0; i < stage.Platforms.Count; i++)
         {
             //create platforms
             spawnPosY -= LevelDistance;
@@ -110,7 +112,7 @@ public class HelixController : MonoBehaviour
             //Coloring the left over parts with the stage color.
             List<GameObject> leftParts = new List<GameObject>();
 
-            foreach(Transform t in platform.transform)
+            foreach (Transform t in platform.transform)
             {
                 t.GetComponent<Renderer>().material.color = allStages[stageNumber].stageLevelPartColor;
                 if (t.gameObject.activeInHierarchy)
@@ -121,7 +123,7 @@ public class HelixController : MonoBehaviour
             //Creating the Death Parts
             List<GameObject> deathParts = new List<GameObject>();
 
-            while(deathParts.Count < stage.Platforms[i].deathPartCount && i != 0)
+            while (deathParts.Count < stage.Platforms[i].deathPartCount && i != 0)
             {
                 GameObject randomPart = leftParts[Random.Range(0, leftParts.Count)];
                 if (!deathParts.Contains(randomPart))

@@ -10,7 +10,7 @@ public class BallController : MonoBehaviour
     private Rigidbody _ballRb;
 
     [SerializeField]
-    private float _impulseForce = 5f;
+    private float _impulseForce = 25f;
 
     //For restarting to startPosition
     private Vector3 _startPos;
@@ -19,6 +19,11 @@ public class BallController : MonoBehaviour
 
     //Camera counter (platform reset)
     private CameraController camera;
+
+    //For paint splash
+    private bool showPaintSplash = true;
+    [SerializeField]
+    public GameObject splashPaint;
 
 
     void Awake()
@@ -36,6 +41,9 @@ public class BallController : MonoBehaviour
 
         if (isSuperSpeedActive)
         {
+            //Disable splash Paint
+            showPaintSplash = false;
+            //Destroy Platform
             if (!collision.transform.GetComponent<Goal>())
             {
                 //change platform collor to Ball color Before destroy
@@ -47,7 +55,7 @@ public class BallController : MonoBehaviour
                     collision.transform.parent.GetChild(i).GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.VelocityChange);
                 }
                 Destroy(collision.transform.parent.gameObject, 0.3f);
-                //Increse camera platform counter
+                //Increse camera platform counter.
                 StartCoroutine(moveCameraCounter());
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
                 Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLavel + 1);
@@ -56,6 +64,8 @@ public class BallController : MonoBehaviour
         }
         else
         {
+            //Enable splash Paint
+            showPaintSplash = true;
             //check if ball hit a red area and restart lvl
             DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
             if (deathPart)
@@ -64,6 +74,11 @@ public class BallController : MonoBehaviour
             }
         }
 
+        if (showPaintSplash && !collision.transform.GetComponent<Goal>())
+        {
+            GameObject splash  = Instantiate(splashPaint, new Vector3 (transform.position.x, transform.position.y -0.17f , transform.position.z), Quaternion.Euler(new Vector3 (90, 0 ,0)));
+            splash.transform.parent = collision.transform;
+        }
 
         //adding force to ball UP (bounce up)
         _ballRb.velocity = Vector3.zero;

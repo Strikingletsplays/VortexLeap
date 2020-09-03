@@ -225,7 +225,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67301273}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -245,9 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b5fea554b47f544a779a4852470772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _impulseForce: 5
+  _impulseForce: 25
   perfectPass: 0
   isSuperSpeedActive: 0
+  splashPaint: {fileID: 1237753382965955368, guid: c6071a549313255429e2a5066c3ea522,
+    type: 3}
 --- !u!1 &209790322
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,7 +594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708bda7a9432ed04ba945ba403cab1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helix: {fileID: 1019719865}
   platformCounter: 0
 --- !u!4 &979415525 stripped
 Transform:
