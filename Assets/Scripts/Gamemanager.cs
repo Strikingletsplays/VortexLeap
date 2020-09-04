@@ -40,9 +40,6 @@ public class Gamemanager : MonoBehaviour
 
         //Get highscore from playerprefs
         bestScore = PlayerPrefs.GetInt("Highscore");
-
-        //Set Framerate
-        Application.targetFrameRate = 60;
     }
     public void SetColors()
     {

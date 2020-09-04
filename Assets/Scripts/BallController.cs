@@ -36,7 +36,7 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        //So it dosent jump to heaven
         if (_ignoreNextCollision)
             return;
 
@@ -73,7 +73,7 @@ public class BallController : MonoBehaviour
             DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
             if (deathPart)
             {
-                deathPart.HitDeathPart();
+                Gamemanager.singleton.RestartLevel();
             }
         }
 
@@ -94,7 +94,7 @@ public class BallController : MonoBehaviour
         isSuperSpeedActive = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //check for superspeed!
         if(perfectPass >= 3 && !isSuperSpeedActive)

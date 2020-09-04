@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         score = Gamemanager.singleton.score;
         currentLevel = Gamemanager.singleton.currentLevel;

@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4692acfe56a054492d63221042c13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Camera: {fileID: 0}
 --- !u!1001 &55038254912700434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,6 +84,10 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -233,6 +242,10 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -309,6 +322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -383,6 +400,10 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -459,6 +480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -534,6 +559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -596,6 +625,10 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -672,6 +705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -734,6 +771,10 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -810,6 +851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -884,6 +929,10 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x

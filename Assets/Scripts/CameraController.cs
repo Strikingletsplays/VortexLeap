@@ -8,9 +8,8 @@ public class CameraController : MonoBehaviour
     private Vector3 targetPosition;
 
     //offset
-    private Vector3 offset = new Vector3 (0,3,-7);
+    public Vector3 offset = new Vector3 (0,3,-7);
 
-    // Update is called once per frame
     void Update()
     {
         //(problem at last passCheck ++platformcounter)

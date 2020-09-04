@@ -27,5 +27,6 @@ public class PassCheck : MonoBehaviour
         //Destroy platform
         GetComponentInChildren<Collider>().enabled = false;
         Destroy(GetComponentInChildren<Transform>().gameObject, 0.3f);
+        System.GC.Collect();
     }
 }

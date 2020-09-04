@@ -8,8 +8,4 @@ public class DeathPart : MonoBehaviour
     {
         GetComponent<Renderer>().material.color = Color.red;
     }
-    public void HitDeathPart()
-    {
-        Gamemanager.singleton.RestartLevel();
-    }
 }
