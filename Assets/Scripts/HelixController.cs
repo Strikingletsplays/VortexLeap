@@ -13,6 +13,15 @@ public class HelixController : MonoBehaviour
 
     public GameObject helicPlatformPrefab;
 
+    //For setting colors
+    [SerializeField]
+    private TrailRenderer _ballTrailRenderer;
+    [SerializeField]
+    private Renderer _ballTrail;
+    [SerializeField]
+    private Renderer _helixRenderer;
+
+
     //To load next stages
     public List<Stage> allStages = new List<Stage>();
 
@@ -61,14 +70,15 @@ public class HelixController : MonoBehaviour
         }
         //SETTING COLORS FROM STAGE FILE
         //Setting the colorTrail color
-        FindObjectOfType<BallController>().GetComponentInChildren<TrailRenderer>().startColor = allStages[stageNumber].stageBallColor;
-        FindObjectOfType<BallController>().GetComponentInChildren<TrailRenderer>().endColor = allStages[stageNumber].stageBallColor;
+        _ballTrailRenderer.startColor = allStages[stageNumber].stageBallColor;
+        _ballTrailRenderer.endColor = allStages[stageNumber].stageBallColor;
+        //Change color of the ball in stage
+        _ballTrail.material.color = allStages[stageNumber].stageBallColor;
         //Seting the Helix Cylinder color
-        FindObjectOfType<HelixController>().GetComponent<Renderer>().material.color = allStages[stageNumber].helixCylinderColor;
+        _helixRenderer.material.color = allStages[stageNumber].helixCylinderColor;
         //CHange color of background of the stage
         Camera.main.backgroundColor = allStages[stageNumber].stageBackgroundColor;
-        //Change color of the ball in stage
-        FindObjectOfType<BallController>().GetComponent<Renderer>().material.color = allStages[stageNumber].stageBallColor;
+        
 
 
         //Reset helix rotation

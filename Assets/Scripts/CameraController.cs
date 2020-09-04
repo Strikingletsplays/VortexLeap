@@ -2,6 +2,7 @@
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField]
     private HelixController _helix;
     public int platformCounter = 0;
     private Vector3 targetPosition;
@@ -9,10 +10,6 @@ public class CameraController : MonoBehaviour
     //offset
     private Vector3 offset = new Vector3 (0,3,-7);
 
-    private void Awake()
-    {
-        _helix = FindObjectOfType<HelixController>();
-    }
     // Update is called once per frame
     void Update()
     {

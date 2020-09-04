@@ -4,11 +4,14 @@ using UnityEngine.Advertisements;
 public class Gamemanager : MonoBehaviour
 {
     [SerializeField]
-    private HelixController helixController;
+    private HelixController _helixController;
+    [SerializeField]
+    private BallController _ballController;
+
     public int bestScore;
     public int score;
 
-    public int currentLavel = 0;
+    public int currentLevel = 0;
 
     public static Gamemanager singleton;
 
@@ -24,16 +27,19 @@ public class Gamemanager : MonoBehaviour
 
         //Get highscore from playerprefs
         bestScore = PlayerPrefs.GetInt("Highscore");
+
+        //Set Framerate
+        Application.targetFrameRate = 60;
     }
     public void NextLevel()
     {
-        if (currentLavel < helixController.allStages.Count)
+        if (currentLevel < _helixController.allStages.Count)
         {
-            currentLavel++;
-            FindObjectOfType<HelixController>().LoadStage(currentLavel);
+            currentLevel++;
+            _helixController.LoadStage(currentLevel);
         }
         singleton.score = 0;
-        FindObjectOfType<BallController>().ResetBall();
+        _ballController.ResetBall();
     }
     public void RestartLevel()
     {
@@ -41,8 +47,8 @@ public class Gamemanager : MonoBehaviour
         Advertisement.Show();
         //restart scene
         singleton.score = 0;
-        FindObjectOfType<BallController>().ResetBall();
-        FindObjectOfType<HelixController>().LoadStage(currentLavel);
+        _ballController.ResetBall();
+        _helixController.LoadStage(currentLevel);
     }
     public void AddScore(int scoreToAdd)
     {

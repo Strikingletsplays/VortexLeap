@@ -7,6 +7,7 @@ public class BallController : MonoBehaviour
     private bool _ignoreNextCollision;
 
     //RigidBody of Ball
+    [SerializeField]
     private Rigidbody _ballRb;
 
     [SerializeField]
@@ -18,7 +19,8 @@ public class BallController : MonoBehaviour
     public bool isSuperSpeedActive;
 
     //Camera counter (platform reset)
-    private CameraController camera;
+    [SerializeField]
+    private CameraController _camera;
 
     //For paint splash
     private bool showPaintSplash = true;
@@ -29,8 +31,6 @@ public class BallController : MonoBehaviour
     void Awake()
     {
         _startPos = transform.position;
-        _ballRb = GetComponent<Rigidbody>();
-        camera = FindObjectOfType<CameraController>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -46,19 +46,20 @@ public class BallController : MonoBehaviour
             //Destroy Platform
             if (!collision.transform.GetComponent<Goal>())
             {
+                Transform parent = collision.transform.parent;
                 //change platform collor to Ball color Before destroy
-                for(int i=0; i < collision.transform.parent.childCount; i++)
+                for (int i=0; i < collision.transform.parent.childCount; i++)
                 {
-                    collision.transform.parent.GetChild(i).GetComponent<Renderer>().material.color = this.gameObject.GetComponent<Renderer>().material.color;
-                    collision.transform.parent.GetChild(i).GetComponent<MeshCollider>().enabled = false;
-                    collision.transform.parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
-                    collision.transform.parent.GetChild(i).GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.VelocityChange);
+                    parent.GetChild(i).GetComponent<Renderer>().material.color = GetComponent<Renderer>().material.color;
+                    parent.GetChild(i).GetComponent<MeshCollider>().enabled = false;
+                    parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
+                    parent.GetChild(i).GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.VelocityChange);
                 }
-                Destroy(collision.transform.parent.gameObject, 0.3f);
+                Destroy(parent.gameObject, 0.3f);
                 //Increse camera platform counter.
                 StartCoroutine(moveCameraCounter());
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
-                Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLavel + 1);
+                Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLevel + 1);
                 //make particles part!
             }
         }
@@ -66,6 +67,7 @@ public class BallController : MonoBehaviour
         {
             //Enable splash Paint
             showPaintSplash = true;
+
             //check if ball hit a red area and restart lvl
             DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
             if (deathPart)
@@ -109,14 +111,14 @@ public class BallController : MonoBehaviour
     {
         transform.position = _startPos;
         //Reset Camera to starting position
-        FindObjectOfType<Camera>().transform.position = new Vector3 (0,8,-7);
+        _camera.gameObject.transform.position = new Vector3 (0,8,-7);
         //Reset platform counter
-        camera.platformCounter = 0;
+        _camera.platformCounter = 0;
     }
     IEnumerator moveCameraCounter()
     {
         yield return new WaitForSeconds(1);
-        camera.platformCounter++;
+        _camera.platformCounter++;
         yield return null;
     }
 }

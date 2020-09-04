@@ -122,7 +122,12 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 8422908771116681662, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
+  - {fileID: 1078964891011298, guid: b2f5e62a8b37d05448867cff1120c48d, type: 3}
+  - {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
+  - {fileID: 5575061784588326417, guid: cea4df82ec2406c419c00e0810929768, type: 3}
+  - {fileID: 1237753382965955368, guid: c6071a549313255429e2a5066c3ea522, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -362,7 +367,7 @@ PlayerSettings:
     m_DynamicBatching: 0
   - m_BuildTarget: Android
     m_StaticBatching: 1
-    m_DynamicBatching: 1
+    m_DynamicBatching: 0
   - m_BuildTarget: iPhone
     m_StaticBatching: 1
     m_DynamicBatching: 0
@@ -428,7 +433,9 @@ PlayerSettings:
     Android: 1
     iPhone: 1
     tvOS: 1
-  m_BuildTargetGroupLightmapEncodingQuality: []
+  m_BuildTargetGroupLightmapEncodingQuality:
+  - m_BuildTarget: Android
+    m_EncodingQuality: 0
   m_BuildTargetGroupLightmapSettings: []
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0

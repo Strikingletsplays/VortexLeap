@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class PassCheck : MonoBehaviour
 {
-    private CameraController Camera;
+    [SerializeField]
+    private CameraController _Camera;
 
     private void Awake()
     {
-        Camera = FindObjectOfType<CameraController>();
+        _Camera = FindObjectOfType<CameraController>();
     }
     private void OnTriggerEnter(Collider other)
     {
         //Increment camera target platform
-        Camera.platformCounter++;
+        _Camera.platformCounter++;
         //Adding the lvl value to score
-        Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLavel+1);
+        Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLevel + 1);
         //Increse Perfect Pass value by 1
         FindObjectOfType<BallController>().perfectPass++;
         //Destroy platform
