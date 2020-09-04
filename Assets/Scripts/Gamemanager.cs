@@ -3,14 +3,27 @@ using UnityEngine.Advertisements;
 
 public class Gamemanager : MonoBehaviour
 {
+    //Controllers
     [SerializeField]
     private HelixController _helixController;
     [SerializeField]
     private BallController _ballController;
 
+    //For UI (progress bar)
+    [SerializeField]
+    private UIManager _uIManager;
+
+    //For setting colors
+    [SerializeField]
+    private TrailRenderer _ballTrailRenderer;
+    [SerializeField]
+    private Renderer _ballTrail;
+    [SerializeField]
+    private Renderer _helixRenderer;
+
+    //Score & level
     public int bestScore;
     public int score;
-
     public int currentLevel = 0;
 
     public static Gamemanager singleton;
@@ -31,15 +44,31 @@ public class Gamemanager : MonoBehaviour
         //Set Framerate
         Application.targetFrameRate = 60;
     }
+    public void SetColors()
+    {
+        //SETTING COLORS FROM STAGE FILE
+        //Setting the colorTrail color
+        _ballTrailRenderer.startColor = _helixController.allStages[currentLevel].stageBallColor;
+        _ballTrailRenderer.endColor = _helixController.allStages[currentLevel].stageBallColor;
+        //Change color of the ball in stage
+        _ballTrail.material.color = _helixController.allStages[currentLevel].stageBallColor;
+        //Seting the Helix Cylinder color
+        _helixRenderer.material.color = _helixController.allStages[currentLevel].helixCylinderColor;
+        //CHange color of background of the stage
+        Camera.main.backgroundColor = _helixController.allStages[currentLevel].stageBackgroundColor;
+    }
     public void NextLevel()
     {
-        if (currentLevel < _helixController.allStages.Count)
+        if ((currentLevel+1) < _helixController.allStages.Count)
         {
             currentLevel++;
             _helixController.LoadStage(currentLevel);
+            //For UI (progress bar)
+            _uIManager.setNumPlatforms();
+            SetColors();
+            singleton.score = 0;
+            _ballController.ResetBall();
         }
-        singleton.score = 0;
-        _ballController.ResetBall();
     }
     public void RestartLevel()
     {
@@ -63,5 +92,4 @@ public class Gamemanager : MonoBehaviour
         }
         
     }
-
 }

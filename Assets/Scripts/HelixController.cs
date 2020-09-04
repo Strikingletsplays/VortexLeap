@@ -7,26 +7,17 @@ public class HelixController : MonoBehaviour
     private Vector2 _lastTapPos;
     private Vector3 _startRotation;
 
-    //Edges of Helix
+    //Helix Platforms
     public Transform topTransform;
     public Transform goalTransform;
-
     public GameObject helicPlatformPrefab;
-
-    //For setting colors
-    [SerializeField]
-    private TrailRenderer _ballTrailRenderer;
-    [SerializeField]
-    private Renderer _ballTrail;
-    [SerializeField]
-    private Renderer _helixRenderer;
-
+    public List<GameObject> spawnedPlatforms = new List<GameObject>();
 
     //To load next stages
     public List<Stage> allStages = new List<Stage>();
 
+    //Helix Distance
     private float helixDistance;
-    public List<GameObject> spawnedPlatforms = new List<GameObject>();
 
     void Awake()
     {
@@ -69,17 +60,7 @@ public class HelixController : MonoBehaviour
             return;
         }
         //SETTING COLORS FROM STAGE FILE
-        //Setting the colorTrail color
-        _ballTrailRenderer.startColor = allStages[stageNumber].stageBallColor;
-        _ballTrailRenderer.endColor = allStages[stageNumber].stageBallColor;
-        //Change color of the ball in stage
-        _ballTrail.material.color = allStages[stageNumber].stageBallColor;
-        //Seting the Helix Cylinder color
-        _helixRenderer.material.color = allStages[stageNumber].helixCylinderColor;
-        //CHange color of background of the stage
-        Camera.main.backgroundColor = allStages[stageNumber].stageBackgroundColor;
-        
-
+        Gamemanager.singleton.SetColors();
 
         //Reset helix rotation
         transform.localEulerAngles = _startRotation;
@@ -143,7 +124,6 @@ public class HelixController : MonoBehaviour
                     deathParts.Add(randomPart);
                 }
             }
-
         }
     }
 }

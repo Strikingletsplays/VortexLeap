@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    //For no accidental double collisions
     private bool _ignoreNextCollision;
 
     //RigidBody of Ball
