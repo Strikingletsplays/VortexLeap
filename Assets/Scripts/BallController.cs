@@ -28,6 +28,10 @@ public class BallController : MonoBehaviour
     [SerializeField]
     public GameObject splashPaint;
 
+    //BallSplash Particle System
+    [SerializeField]
+    private ParticleSystem _ballSplash;
+
 
     void Awake()
     {
@@ -61,7 +65,8 @@ public class BallController : MonoBehaviour
                 StartCoroutine(moveCameraCounter());
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
                 Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLevel + 1);
-                //make particles part!
+                //make particles part! (todo)
+
             }
         }
         else
@@ -83,6 +88,9 @@ public class BallController : MonoBehaviour
             splash.transform.parent = collision.transform;
         }
 
+        //play Ball Splash Particle System
+        _ballSplash.GetComponent<SplashController>().MoveToPlatform(collision.transform);
+        _ballSplash.Play();
         //adding force to ball UP (bounce up)
         _ballRb.velocity = Vector3.zero;
         _ballRb.AddForce(Vector3.up * _impulseForce, ForceMode.Impulse);
@@ -111,15 +119,16 @@ public class BallController : MonoBehaviour
     public void ResetBall()
     {
         transform.position = _startPos;
-        //Reset Camera to starting position
-        _camera.gameObject.transform.position = new Vector3 (0,8,-7);
         //Reset platform counter
         _camera.platformCounter = 0;
+        //Reset Camera to starting position
+        _camera.gameObject.transform.position = new Vector3 (0,8,-7);
     }
     IEnumerator moveCameraCounter()
     {
-        yield return new WaitForSeconds(1);
         _camera.platformCounter++;
+        yield return new WaitForSeconds(1);
+        _camera.RepositionCamera();
         yield return null;
     }
 }

@@ -20,6 +20,8 @@ public class Gamemanager : MonoBehaviour
     private Renderer _ballTrail;
     [SerializeField]
     private Renderer _helixRenderer;
+    [SerializeField]
+    private ParticleSystem _ballSplash;
 
     //Score & level
     public int bestScore;
@@ -49,6 +51,8 @@ public class Gamemanager : MonoBehaviour
         _ballTrailRenderer.endColor = _helixController.allStages[currentLevel].stageBallColor;
         //Change color of the ball in stage
         _ballTrail.material.color = _helixController.allStages[currentLevel].stageBallColor;
+        //Seting the ball splash color
+        _ballSplash.startColor = _helixController.allStages[currentLevel].stageBallColor;
         //Seting the Helix Cylinder color
         _helixRenderer.material.color = _helixController.allStages[currentLevel].helixCylinderColor;
         //CHange color of background of the stage
