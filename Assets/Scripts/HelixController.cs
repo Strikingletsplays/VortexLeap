@@ -43,7 +43,7 @@ public class HelixController : MonoBehaviour
             _lastTapPos = curTapPos;
 
             //Rotate Helix
-            transform.Rotate(Vector3.up * delta * 0.3f);
+            transform.Rotate(Vector3.up * delta * 0.5f);
         }
         if (Input.GetMouseButtonUp(0))
         {

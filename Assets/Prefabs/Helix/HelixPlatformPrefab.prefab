@@ -69,7 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4692acfe56a054492d63221042c13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Camera: {fileID: 0}
 --- !u!1001 &55038254912700434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,14 +79,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -133,18 +124,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &57830825469179258 stripped
@@ -163,10 +142,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,18 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &601943822797012760 stripped
@@ -242,10 +205,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -291,18 +250,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &1316758925079457057 stripped
@@ -321,10 +268,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -370,18 +313,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &2106565396390051194 stripped
@@ -400,10 +331,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -449,18 +376,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &2438750555788177582 stripped
@@ -479,10 +394,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -528,18 +439,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &4147404277270299609 stripped
@@ -558,10 +457,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -626,10 +521,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -674,18 +565,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &6375239652158794173 stripped
@@ -704,10 +583,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -772,10 +647,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelixPartPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -820,18 +691,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &7824938173403682998 stripped
@@ -850,10 +709,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -899,18 +754,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}
 --- !u!4 &8052516851647854859 stripped
@@ -929,10 +772,6 @@ PrefabInstance:
     - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_Name
       value: HelixPartPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139882819383378, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalPosition.x
@@ -977,18 +816,6 @@ PrefabInstance:
     - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219736649463144, guid: 5651271489e37d64180e1095cc37b455, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5651271489e37d64180e1095cc37b455, type: 3}

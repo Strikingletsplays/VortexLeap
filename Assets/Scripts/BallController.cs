@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -12,7 +11,10 @@ public class BallController : MonoBehaviour
     private Rigidbody _ballRb;
 
     [SerializeField]
-    private float _impulseForce = 25f;
+    private float _impulseForce;
+
+    [SerializeField]
+    private HelixController _helix;
 
     //For restarting to startPosition
     private Vector3 _startPos;
@@ -58,13 +60,14 @@ public class BallController : MonoBehaviour
                     parent.GetChild(i).GetComponent<Renderer>().material.color = GetComponent<Renderer>().material.color;
                     parent.GetChild(i).GetComponent<MeshCollider>().enabled = false;
                     parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
-                    parent.GetChild(i).GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.VelocityChange);
+                    parent.GetChild(i).GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
+                    parent.GetChild(i).GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
                 }
-                Destroy(parent.gameObject, 0.3f);
+                Destroy(parent.gameObject, 2);
                 //Increse camera platform counter.
                 StartCoroutine(moveCameraCounter());
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
-                Gamemanager.singleton.AddScore(Gamemanager.singleton.currentLevel + 1);
+                Gamemanager.singleton.AddScore(Gamemanager.singleton.currentStage + 1);
                 //make particles part! (todo)
 
             }
@@ -84,7 +87,7 @@ public class BallController : MonoBehaviour
 
         if (showPaintSplash && !collision.transform.GetComponent<Goal>())
         {
-            GameObject splash  = Instantiate(splashPaint, new Vector3 (transform.position.x, transform.position.y -0.17f , transform.position.z), Quaternion.Euler(new Vector3 (90, 0 ,0)));
+            GameObject splash  = Instantiate(splashPaint, new Vector3 (transform.position.x, transform.position.y -0.15f , transform.position.z), Quaternion.Euler(new Vector3 (90, Random.Range(0,360) ,0)));
             splash.transform.parent = collision.transform;
         }
 
@@ -126,9 +129,9 @@ public class BallController : MonoBehaviour
     }
     IEnumerator moveCameraCounter()
     {
-        _camera.platformCounter++;
         yield return new WaitForSeconds(1);
-        _camera.RepositionCamera();
+        if (_camera.platformCounter < _helix.spawnedPlatforms.Count)
+            _camera.RepositionCamera();
         yield return null;
     }
 }

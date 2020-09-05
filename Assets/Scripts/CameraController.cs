@@ -15,14 +15,14 @@ public class CameraController : MonoBehaviour
         targetPosition = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //move to new platform
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 5f * Time.fixedDeltaTime);
     }
     public void RepositionCamera()
     {
-        if (_helix.spawnedPlatforms[platformCounter])   //set cameras position to platform
+        if (_helix.spawnedPlatforms[platformCounter] != null)   //set cameras position to platform
         {
             targetPosition = _helix.spawnedPlatforms[platformCounter].transform.position + offset;
         }

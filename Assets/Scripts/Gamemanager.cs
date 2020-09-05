@@ -26,7 +26,7 @@ public class Gamemanager : MonoBehaviour
     //Score & level
     public int bestScore;
     public int score;
-    public int currentLevel = 0;
+    public int currentStage = 0;
 
     public static Gamemanager singleton;
 
@@ -47,23 +47,23 @@ public class Gamemanager : MonoBehaviour
     {
         //SETTING COLORS FROM STAGE FILE
         //Setting the colorTrail color
-        _ballTrailRenderer.startColor = _helixController.allStages[currentLevel].stageBallColor;
-        _ballTrailRenderer.endColor = _helixController.allStages[currentLevel].stageBallColor;
+        _ballTrailRenderer.startColor = _helixController.allStages[currentStage].stageBallColor;
+        _ballTrailRenderer.endColor = _helixController.allStages[currentStage].stageBallColor;
         //Change color of the ball in stage
-        _ballTrail.material.color = _helixController.allStages[currentLevel].stageBallColor;
+        _ballTrail.material.color = _helixController.allStages[currentStage].stageBallColor;
         //Seting the ball splash color
-        _ballSplash.startColor = _helixController.allStages[currentLevel].stageBallColor;
+        _ballSplash.startColor = _helixController.allStages[currentStage].stageBallColor;
         //Seting the Helix Cylinder color
-        _helixRenderer.material.color = _helixController.allStages[currentLevel].helixCylinderColor;
+        _helixRenderer.material.color = _helixController.allStages[currentStage].helixCylinderColor;
         //CHange color of background of the stage
-        Camera.main.backgroundColor = _helixController.allStages[currentLevel].stageBackgroundColor;
+        Camera.main.backgroundColor = _helixController.allStages[currentStage].stageBackgroundColor;
     }
     public void NextLevel()
     {
-        if ((currentLevel+1) < _helixController.allStages.Count)
+        if ((currentStage + 1) < _helixController.allStages.Count)
         {
-            currentLevel++;
-            _helixController.LoadStage(currentLevel);
+            currentStage++;
+            _helixController.LoadStage(currentStage);
             //For UI (progress bar)
             _uIManager.setNumPlatforms();
             SetColors();
@@ -78,7 +78,7 @@ public class Gamemanager : MonoBehaviour
         //restart scene
         singleton.score = 0;
         _ballController.ResetBall();
-        _helixController.LoadStage(currentLevel);
+        _helixController.LoadStage(currentStage);
     }
     public void AddScore(int scoreToAdd)
     {

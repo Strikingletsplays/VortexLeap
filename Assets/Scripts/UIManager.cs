@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,7 +38,7 @@ public class UIManager : MonoBehaviour
     void FixedUpdate()
     {
         score = Gamemanager.singleton.score;
-        currentLevel = Gamemanager.singleton.currentLevel;
+        currentLevel = Gamemanager.singleton.currentStage;
 
         _currentLvl.text = (currentLevel + 1).ToString();
         _nextLvl.text = (currentLevel + 2).ToString();
@@ -52,4 +51,5 @@ public class UIManager : MonoBehaviour
     {
         numberOfPlatforms = _helixController.spawnedPlatforms.Count;
     }
+
 }
