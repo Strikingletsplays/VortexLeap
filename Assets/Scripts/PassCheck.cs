@@ -1,18 +1,15 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PassCheck : MonoBehaviour
 {
-    private CameraController _camera;
-    private HelixController _helix;
     private GameObject _addScore;
     private Animator _addScoreAnim;
     private TextMeshProUGUI _addScoreText;
 
     private void Awake()
     {
-        _camera = FindObjectOfType<CameraController>();
-        _helix = FindObjectOfType<HelixController>();
         _addScore = FindObjectOfType<Animator>().gameObject;
         _addScoreAnim = _addScore.GetComponent<Animator>();
         _addScoreText = _addScore.GetComponent<TextMeshProUGUI>();
@@ -20,7 +17,7 @@ public class PassCheck : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Increment camera target platform
-        _camera.platformCounter++;
+        CameraController.singleton.platformCounter++;
         //Adding the lvl value to score
         Gamemanager.singleton.AddScore(Gamemanager.singleton.currentStage + 1);
         //Play AnimScore 
@@ -38,14 +35,15 @@ public class PassCheck : MonoBehaviour
         //Increse Perfect Pass value by 1
         FindObjectOfType<BallController>().perfectPass++;
         //Move camera if there is a next platform
-        if (_camera.platformCounter < _helix.spawnedPlatforms.Count)
+        if (CameraController.singleton.platformCounter < HelixController.singleton.spawnedPlatforms.Count)
         {
-            _camera.RepositionCamera();
+            CameraController.singleton.RepositionCamera();
         }
         //Destroy platform
-        Destroy();
+        StartCoroutine(Destroy());
+        
     }
-    void Destroy()
+    IEnumerator Destroy()
     {
         //Destroy platform 
         transform.GetComponentInChildren<Collider>().enabled = false;
@@ -54,8 +52,11 @@ public class PassCheck : MonoBehaviour
             //Adding Random Force
             transform.GetChild(i).GetComponentInChildren<MeshCollider>().enabled = false;
             transform.GetChild(i).GetComponentInChildren<Rigidbody>().isKinematic = false;
-            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(Random.Range(-5, 5), 0, Random.Range(0, 3)), ForceMode.VelocityChange);
+            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, -2, 2), ForceMode.VelocityChange);
+            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-5, 5), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
         }
-        Destroy(GetComponentInChildren<Transform>().gameObject, 1f);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(GetComponentInChildren<Transform>().gameObject);
+        yield return null;
     }
 }

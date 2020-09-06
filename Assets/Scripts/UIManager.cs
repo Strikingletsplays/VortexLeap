@@ -13,8 +13,6 @@ public class UIManager : MonoBehaviour
 
     //Level Progration Barr
     [SerializeField]
-    private CameraController _Camera;
-    [SerializeField]
     private TextMeshProUGUI _currentLvl;
     [SerializeField]
     private TextMeshProUGUI _nextLvl;
@@ -25,9 +23,6 @@ public class UIManager : MonoBehaviour
     //Score & Level
     public int currentLevel;
     public int score;
-
-    [SerializeField]
-    private HelixController _helixController;
 
     private void Awake()
     {
@@ -45,11 +40,11 @@ public class UIManager : MonoBehaviour
 
         textBest.text = "Best : " + Gamemanager.singleton.bestScore;
         textScore.text = score.ToString();
-        levelProgression.value = (float) (_Camera.platformCounter) / numberOfPlatforms;
+        levelProgression.value = (float) (CameraController.singleton.platformCounter) / numberOfPlatforms;
     }
     public void setNumPlatforms()
     {
-        numberOfPlatforms = _helixController.spawnedPlatforms.Count;
+        numberOfPlatforms = HelixController.singleton.spawnedPlatforms.Count;
     }
 
 }

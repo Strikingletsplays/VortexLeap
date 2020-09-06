@@ -2,16 +2,24 @@
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    private HelixController _helix;
+    //For moving the camera
     public int platformCounter = 0;
     private Vector3 targetPosition;
 
     //offset
     public Vector3 offset = new Vector3 (0,3,-7);
 
+    //Creating a Singleton
+    public static CameraController singleton;
+
     private void Awake()
     {
+        //Set singleton
+        if (singleton == null)
+            singleton = this;
+        else if (singleton != this)
+            Destroy(gameObject);
+
         targetPosition = transform.position;
     }
 
@@ -22,9 +30,9 @@ public class CameraController : MonoBehaviour
     }
     public void RepositionCamera()
     {
-        if (_helix.spawnedPlatforms[platformCounter] != null)   //set cameras position to platform
+        if (HelixController.singleton.spawnedPlatforms[platformCounter] != null)   //set cameras position to platform
         {
-            targetPosition = _helix.spawnedPlatforms[platformCounter].transform.position + offset;
+            targetPosition = HelixController.singleton.spawnedPlatforms[platformCounter].transform.position + offset;
         }
     }
 }

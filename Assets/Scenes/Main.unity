@@ -307,7 +307,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
-  m_CollisionDetection: 3
+  m_CollisionDetection: 0
 --- !u!114 &67301279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,10 +322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ballRb: {fileID: 67301278}
   _impulseForce: 4.5
-  _helix: {fileID: 1019719865}
   perfectPass: 0
   isSuperSpeedActive: 0
-  _camera: {fileID: 963194229}
   splashPaint: {fileID: 1237753382965955368, guid: c6071a549313255429e2a5066c3ea522,
     type: 3}
   _ballSplash: {fileID: 1088176645}
@@ -389,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -446,7 +444,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -537,7 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -594,7 +592,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -693,7 +691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -750,7 +748,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -849,7 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -906,7 +904,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1005,7 +1003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1062,7 +1060,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1431,9 +1429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708bda7a9432ed04ba945ba403cab1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _helix: {fileID: 1019719865}
   platformCounter: 0
-  offset: {x: 0, y: 2, z: -6.5}
+  offset: {x: 0, y: 2.5, z: -6.5}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,7 +1443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -1514,7 +1511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424630cbe9ea8214584b292b20e1f7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _helixController: {fileID: 1019719865}
   _ballController: {fileID: 67301279}
   _uIManager: {fileID: 1290765051}
   _diedCanvas: {fileID: 1769847833}
@@ -2004,7 +2000,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290765046}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -2094,14 +2090,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textScore: {fileID: 209790324}
   textBest: {fileID: 1319758759}
-  _Camera: {fileID: 963194229}
   _currentLvl: {fileID: 117314762}
   _nextLvl: {fileID: 438251986}
   levelProgression: {fileID: 1032775838}
   numberOfPlatforms: 0
   currentLevel: 0
   score: 0
-  _helixController: {fileID: 1019719865}
 --- !u!1 &1319758757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,7 +2147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2210,7 +2204,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -2315,7 +2309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2588,8 +2582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _percentage: {fileID: 2080896448}
-  _helixController: {fileID: 1019719865}
-  _cameraController: {fileID: 963194229}
 --- !u!1 &1776169801
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,7 +2654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2719,7 +2711,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7665,7 +7657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7722,7 +7714,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -7777,124 +7769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1019719864}
     m_Modifications:
-    - target: {fileID: 277837674, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 605011793, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 804850258, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 958957446, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 1162658949, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 1229302270, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 1591584386, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 1684059165, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 1862077806, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 1865563964, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 1915547132, guid: fdb51da4958abda4fa9b9d93772bf44e, type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
-    - target: {fileID: 17676392417253708, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 286759097793580083, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 1758770102781307451, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 2633551022595008495, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 3167816035881367476, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 3596913842952562061, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 4142522718353977327, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 5366909519634990404, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 6136019724729827875, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228495649575281566, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 7046198332820681512, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 7121474824425885880, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
-      objectReference: {fileID: 0}
-    - target: {fileID: 8006104321900389639, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: _cameraController
-      value: 
-      objectReference: {fileID: 963194229}
     - target: {fileID: 8422908771116681662, guid: fdb51da4958abda4fa9b9d93772bf44e,
         type: 3}
       propertyPath: m_Name
       value: HelixGoal
-      objectReference: {fileID: 0}
-    - target: {fileID: 8422908771116681662, guid: fdb51da4958abda4fa9b9d93772bf44e,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: 8422908771116681663, guid: fdb51da4958abda4fa9b9d93772bf44e,
         type: 3}

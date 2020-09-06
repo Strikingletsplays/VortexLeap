@@ -19,8 +19,17 @@ public class HelixController : MonoBehaviour
     //Helix Distance
     private float helixDistance;
 
+    //Creating a Singleton
+    public static HelixController singleton;
+
     void Awake()
     {
+        //Set singleton
+        if (singleton == null)
+            singleton = this;
+        else if (singleton != this)
+            Destroy(gameObject);
+
         _startRotation = transform.localEulerAngles;
         helixDistance = topTransform.localPosition.y - goalTransform.localPosition.y - 0.1f;
         LoadStage(0);
@@ -127,7 +136,7 @@ public class HelixController : MonoBehaviour
                     deathParts.Add(randomPart);
                 }
             }
-            FindObjectOfType<CameraController>().RepositionCamera();
+            CameraController.singleton.RepositionCamera();
         }
     }
 }

@@ -5,8 +5,6 @@ public class Gamemanager : MonoBehaviour
 {
     //Controllers
     [SerializeField]
-    private HelixController _helixController;
-    [SerializeField]
     private BallController _ballController;
 
     //For UI (progress bar)
@@ -30,6 +28,7 @@ public class Gamemanager : MonoBehaviour
     public int score;
     public int currentStage = 0;
 
+    //Creating a Singleton
     public static Gamemanager singleton;
 
     void Awake()
@@ -49,23 +48,23 @@ public class Gamemanager : MonoBehaviour
     {
         //SETTING COLORS FROM STAGE FILE
         //Setting the colorTrail color
-        _ballTrailRenderer.startColor = _helixController.allStages[currentStage].stageBallColor;
-        _ballTrailRenderer.endColor = _helixController.allStages[currentStage].stageBallColor;
+        _ballTrailRenderer.startColor = HelixController.singleton.allStages[currentStage].stageBallColor;
+        _ballTrailRenderer.endColor = HelixController.singleton.allStages[currentStage].stageBallColor;
         //Change color of the ball in stage
-        _ballTrail.material.color = _helixController.allStages[currentStage].stageBallColor;
+        _ballTrail.material.color = HelixController.singleton.allStages[currentStage].stageBallColor;
         //Seting the ball splash color
-        _ballSplash.startColor = _helixController.allStages[currentStage].stageBallColor;
+        _ballSplash.startColor = HelixController.singleton.allStages[currentStage].stageBallColor;
         //Seting the Helix Cylinder color
-        _helixRenderer.material.SetColor("_BaseColor", _helixController.allStages[currentStage].helixCylinderColor);
+        _helixRenderer.material.SetColor("_BaseColor", HelixController.singleton.allStages[currentStage].helixCylinderColor);
         //CHange color of background of the stage
-        Camera.main.backgroundColor = _helixController.allStages[currentStage].stageBackgroundColor;
+        Camera.main.backgroundColor = HelixController.singleton.allStages[currentStage].stageBackgroundColor;
     }
     public void NextLevel()
     {
-        if ((currentStage + 1) < _helixController.allStages.Count)
+        if ((currentStage + 1) < HelixController.singleton.allStages.Count)
         {
             currentStage++;
-            _helixController.LoadStage(currentStage);
+            HelixController.singleton.LoadStage(currentStage);
             //For UI (progress bar)
             _uIManager.setNumPlatforms();
             SetColors();
@@ -84,7 +83,7 @@ public class Gamemanager : MonoBehaviour
         //restart scene
         singleton.score = 0;
         _ballController.ResetBall();
-        _helixController.LoadStage(currentStage);
+        HelixController.singleton.LoadStage(currentStage);
     }
     public void AddScore(int scoreToAdd)
     {

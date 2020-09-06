@@ -13,17 +13,10 @@ public class BallController : MonoBehaviour
     [SerializeField]
     private float _impulseForce;
 
-    [SerializeField]
-    private HelixController _helix;
-
     //For restarting to startPosition
     private Vector3 _startPos;
     public int perfectPass = 0;
     public bool isSuperSpeedActive;
-
-    //Camera counter (platform reset)
-    [SerializeField]
-    private CameraController _camera;
 
     //For paint splash
     private bool showPaintSplash = true;
@@ -37,7 +30,6 @@ public class BallController : MonoBehaviour
     //For Death Canvas
     [SerializeField]
     private GameObject _DiedCanvas;
-
 
     void Awake()
     {
@@ -128,15 +120,15 @@ public class BallController : MonoBehaviour
     {
         transform.position = _startPos;
         //Reset platform counter
-        _camera.platformCounter = 0;
+        CameraController.singleton.platformCounter = 0;
         //Reset Camera to starting position
-        _camera.gameObject.transform.position = new Vector3 (0,8,-7);
+        CameraController.singleton.gameObject.transform.position = new Vector3 (0,8,-7);
     }
     IEnumerator moveCameraCounter()
     {
         yield return new WaitForSeconds(1);
-        if (_camera.platformCounter < _helix.spawnedPlatforms.Count)
-            _camera.RepositionCamera();
+        if (CameraController.singleton.platformCounter < HelixController.singleton.spawnedPlatforms.Count)
+            CameraController.singleton.RepositionCamera();
         yield return null;
     }
 }

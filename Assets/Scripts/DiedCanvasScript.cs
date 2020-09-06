@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class DiedCanvasScript : MonoBehaviour
@@ -8,15 +6,9 @@ public class DiedCanvasScript : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _percentage;
 
-    [SerializeField]
-    private HelixController _helixController;
-
-    [SerializeField]
-    private CameraController _cameraController;
-
     private void Update()
     {
-        _percentage.text = Mathf.Round((((float)_cameraController.platformCounter / (float)_helixController.allStages[Gamemanager.singleton.currentStage].Platforms.Count)* 100)).ToString()+ "%";
-        _helixController.ResetLTP();
+        _percentage.text = Mathf.Round((((float)CameraController.singleton.platformCounter / (float)HelixController.singleton.allStages[Gamemanager.singleton.currentStage].Platforms.Count)* 100)).ToString()+ "%";
+        HelixController.singleton.ResetLTP();
     }
 }
