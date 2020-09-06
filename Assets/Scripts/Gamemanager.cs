@@ -12,6 +12,8 @@ public class Gamemanager : MonoBehaviour
     //For UI (progress bar)
     [SerializeField]
     private UIManager _uIManager;
+    [SerializeField]
+    private GameObject _diedCanvas;
 
     //For setting colors
     [SerializeField]
@@ -54,7 +56,7 @@ public class Gamemanager : MonoBehaviour
         //Seting the ball splash color
         _ballSplash.startColor = _helixController.allStages[currentStage].stageBallColor;
         //Seting the Helix Cylinder color
-        _helixRenderer.material.color = _helixController.allStages[currentStage].helixCylinderColor;
+        _helixRenderer.material.SetColor("_BaseColor", _helixController.allStages[currentStage].helixCylinderColor);
         //CHange color of background of the stage
         Camera.main.backgroundColor = _helixController.allStages[currentStage].stageBackgroundColor;
     }
@@ -74,7 +76,11 @@ public class Gamemanager : MonoBehaviour
     public void RestartLevel()
     {
         //Show add
-        Advertisement.Show();
+        //Advertisement.Show();
+
+        //Disable death canvas
+        _diedCanvas.SetActive(false);
+        Time.timeScale = 1;
         //restart scene
         singleton.score = 0;
         _ballController.ResetBall();

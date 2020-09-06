@@ -25,7 +25,10 @@ public class HelixController : MonoBehaviour
         helixDistance = topTransform.localPosition.y - goalTransform.localPosition.y - 0.1f;
         LoadStage(0);
     }
-
+    public void ResetLTP()
+    {
+        _lastTapPos = Vector2.zero;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -47,7 +50,7 @@ public class HelixController : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-            _lastTapPos = Vector2.zero;
+            ResetLTP();
         }
     }
     public void LoadStage(int stageNumber)

@@ -34,6 +34,10 @@ public class BallController : MonoBehaviour
     [SerializeField]
     private ParticleSystem _ballSplash;
 
+    //For Death Canvas
+    [SerializeField]
+    private GameObject _DiedCanvas;
+
 
     void Awake()
     {
@@ -81,7 +85,8 @@ public class BallController : MonoBehaviour
             DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
             if (deathPart)
             {
-                Gamemanager.singleton.RestartLevel();
+                Time.timeScale = 0;
+                _DiedCanvas.SetActive(true);
             }
         }
 
