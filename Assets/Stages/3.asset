@@ -12,40 +12,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574ca7c27e29ac4b91ac2c4fdc9337f, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: 
-  helixCylinderColor: {r: 0.3529412, g: 0.30980393, b: 0.30588236, a: 1}
-  stageBackgroundColor: {r: 0.7568628, g: 0.8235295, b: 0.5372549, a: 1}
-  stageLevelPartColor: {r: 0.7568628, g: 0.4666667, b: 0.2784314, a: 1}
-  stageBallColor: {r: 0.9607844, g: 0.9725491, b: 0.9921569, a: 1}
+  helixCylinderColor: {r: 0.7568628, g: 0.45098042, b: 0.43529415, a: 1}
+  stageBackgroundColor: {r: 0.7686275, g: 0.64705884, b: 0.5686275, a: 1}
+  stageLevelPartColor: {r: 0.3803922, g: 0.13333334, b: 0.31764707, a: 1}
+  stageBallColor: {r: 0.9607844, g: 0.44705886, b: 0.2784314, a: 1}
   Platforms:
+  - partCount: 7
+    deathPartCount: 0
+  - partCount: 7
+    deathPartCount: 0
+  - partCount: 8
+    deathPartCount: 3
+  - partCount: 7
+    deathPartCount: 2
+  - partCount: 8
+    deathPartCount: 3
+  - partCount: 8
+    deathPartCount: 1
+  - partCount: 7
+    deathPartCount: 2
+  - partCount: 8
+    deathPartCount: 2
+  - partCount: 8
+    deathPartCount: 3
+  - partCount: 8
+    deathPartCount: 2
+  - partCount: 8
+    deathPartCount: 1
+  - partCount: 8
+    deathPartCount: 2
+  - partCount: 7
+    deathPartCount: 1
+  - partCount: 8
+    deathPartCount: 2
+  - partCount: 8
+    deathPartCount: 1
+  - partCount: 7
+    deathPartCount: 2
+  - partCount: 8
+    deathPartCount: 1
+  - partCount: 7
+    deathPartCount: 2
   - partCount: 9
-    deathPartCount: 2
-  - partCount: 7
-    deathPartCount: 2
-  - partCount: 8
-    deathPartCount: 1
-  - partCount: 6
     deathPartCount: 3
   - partCount: 8
-    deathPartCount: 5
-  - partCount: 9
-    deathPartCount: 4
-  - partCount: 8
-    deathPartCount: 4
-  - partCount: 7
-    deathPartCount: 3
-  - partCount: 6
     deathPartCount: 2
-  - partCount: 5
-    deathPartCount: 3
-  - partCount: 7
-    deathPartCount: 4
-  - partCount: 6
-    deathPartCount: 4
   - partCount: 7
     deathPartCount: 1
   - partCount: 8
     deathPartCount: 1
+  - partCount: 7
+    deathPartCount: 2
   - partCount: 8
     deathPartCount: 2
-  - partCount: 10
-    deathPartCount: 2
+  - partCount: 8
+    deathPartCount: 1

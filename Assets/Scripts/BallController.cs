@@ -16,7 +16,7 @@ public class BallController : MonoBehaviour
     //For restarting to startPosition
     private Vector3 _startPos;
     public int perfectPass = 0;
-    public bool isSuperSpeedActive;
+    public bool isSuperSpeedActive = false;
 
     //For paint splash
     private bool showPaintSplash = true;
@@ -33,7 +33,7 @@ public class BallController : MonoBehaviour
 
     void Awake()
     {
-        _startPos = transform.position;
+        _startPos = new Vector3(0, 7, -1.4f);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,7 +53,7 @@ public class BallController : MonoBehaviour
                 //change platform collor to Ball color Before destroy
                 for (int i=0; i < collision.transform.parent.childCount; i++)
                 {
-                    parent.GetChild(i).GetComponent<Renderer>().material.color = GetComponent<Renderer>().material.color;
+                    parent.GetChild(i).GetComponent<Renderer>().material.color = HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor;
                     parent.GetChild(i).GetComponent<MeshCollider>().enabled = false;
                     parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
                     parent.GetChild(i).GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
@@ -62,8 +62,6 @@ public class BallController : MonoBehaviour
                 Destroy(parent.gameObject, 2);
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
                 Gamemanager.singleton.AddScore(Gamemanager.singleton.currentStage + 1);
-                //make particles part! (todo)
-
             }
         }
         else
@@ -107,6 +105,7 @@ public class BallController : MonoBehaviour
         {
             isSuperSpeedActive = true;
             _ballRb.AddForce(Vector3.down * 10, ForceMode.Impulse);
+            //make particles part! (todo)
         }
     }
     private void AllowCollision()
@@ -120,6 +119,6 @@ public class BallController : MonoBehaviour
         //Reset platform counter (for %)
         CameraController.singleton.platformCounter = 0;
         //Reset Camera to starting position
-        CameraController.singleton.gameObject.transform.position = new Vector3 (0,8,-7);
+        CameraController.singleton.gameObject.transform.position = new Vector3 (0, 7f, 0);
     }
 }

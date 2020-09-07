@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     //Next possition
     private Vector3 nextPosition;
-    private Vector3 startPosition = new Vector3 (0,7,-6.5f);
+    private Vector3 startPosition = new Vector3 (0,10,-8f);
 
     //offset
     private float offset = 2.75f;

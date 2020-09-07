@@ -31,9 +31,10 @@ public class PassCheck : MonoBehaviour
             _addScoreText.text = "+" + (Gamemanager.singleton.currentStage + 1).ToString();
             _addScoreAnim.SetBool("AddScore", true);
         }
-           
+
         //Increse Perfect Pass value by 1
         FindObjectOfType<BallController>().perfectPass++;
+        
         //Move camera if there is a next platform
         if (CameraController.singleton.platformCounter < HelixController.singleton.spawnedPlatforms.Count)
         {

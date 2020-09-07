@@ -22,6 +22,8 @@ public class Gamemanager : MonoBehaviour
     private Renderer _helixRenderer;
     [SerializeField]
     private ParticleSystem _ballSplash;
+    [SerializeField]
+    private Renderer _helixGoal;
 
     //Score & level
     public int bestScore;
@@ -62,6 +64,8 @@ public class Gamemanager : MonoBehaviour
         _helixRenderer.material.SetColor("_BaseColor", HelixController.singleton.allStages[currentStage].helixCylinderColor);
         //CHange color of background of the stage
         Camera.main.backgroundColor = HelixController.singleton.allStages[currentStage].stageBackgroundColor;
+        //Set Goal Color
+        _helixGoal.material.SetColor("_BaseColor",HelixController.singleton.allStages[currentStage].stageBallColor);
     }
     public void NextLevel()
     {
