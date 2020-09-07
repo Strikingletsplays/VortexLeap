@@ -60,8 +60,6 @@ public class BallController : MonoBehaviour
                     parent.GetChild(i).GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
                 }
                 Destroy(parent.gameObject, 2);
-                //Increse camera platform counter.
-                StartCoroutine(moveCameraCounter());
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
                 Gamemanager.singleton.AddScore(Gamemanager.singleton.currentStage + 1);
                 //make particles part! (todo)
@@ -84,7 +82,7 @@ public class BallController : MonoBehaviour
 
         if (showPaintSplash && !collision.transform.GetComponent<Goal>())
         {
-            GameObject splash  = Instantiate(splashPaint, new Vector3 (transform.position.x, transform.position.y -0.15f , transform.position.z), Quaternion.Euler(new Vector3 (90, Random.Range(0,360) ,0)));
+            GameObject splash  = Instantiate(splashPaint, new Vector3 (transform.position.x, transform.position.y -0.14f , transform.position.z), Quaternion.Euler(new Vector3 (90, Random.Range(0,360) ,0)));
             splash.transform.parent = collision.transform;
         }
 
@@ -119,16 +117,9 @@ public class BallController : MonoBehaviour
     public void ResetBall()
     {
         transform.position = _startPos;
-        //Reset platform counter
+        //Reset platform counter (for %)
         CameraController.singleton.platformCounter = 0;
         //Reset Camera to starting position
         CameraController.singleton.gameObject.transform.position = new Vector3 (0,8,-7);
-    }
-    IEnumerator moveCameraCounter()
-    {
-        yield return new WaitForSeconds(1);
-        if (CameraController.singleton.platformCounter < HelixController.singleton.spawnedPlatforms.Count)
-            CameraController.singleton.RepositionCamera();
-        yield return null;
     }
 }

@@ -136,7 +136,6 @@ public class HelixController : MonoBehaviour
                     deathParts.Add(randomPart);
                 }
             }
-            CameraController.singleton.RepositionCamera();
         }
     }
 }

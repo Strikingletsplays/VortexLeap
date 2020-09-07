@@ -30,6 +30,10 @@ public class Gamemanager : MonoBehaviour
 
     //Creating a Singleton
     public static Gamemanager singleton;
+    private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
 
     void Awake()
     {
@@ -63,6 +67,9 @@ public class Gamemanager : MonoBehaviour
     {
         if ((currentStage + 1) < HelixController.singleton.allStages.Count)
         {
+            //Reset minY camera
+            StartCoroutine(CameraController.singleton.ResetCamera());
+            //incece Stage counter
             currentStage++;
             HelixController.singleton.LoadStage(currentStage);
             //For UI (progress bar)
@@ -74,9 +81,11 @@ public class Gamemanager : MonoBehaviour
     }
     public void RestartLevel()
     {
+        //Reset minY camera
+        StartCoroutine(CameraController.singleton.ResetCamera());
+
         //Show add
         //Advertisement.Show();
-
         //Disable death canvas
         _diedCanvas.SetActive(false);
         Time.timeScale = 1;

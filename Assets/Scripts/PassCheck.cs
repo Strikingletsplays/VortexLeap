@@ -37,7 +37,7 @@ public class PassCheck : MonoBehaviour
         //Move camera if there is a next platform
         if (CameraController.singleton.platformCounter < HelixController.singleton.spawnedPlatforms.Count)
         {
-            CameraController.singleton.RepositionCamera();
+            //CameraController.singleton.RepositionCamera();
         }
         //Destroy platform
         StartCoroutine(Destroy());
@@ -52,10 +52,10 @@ public class PassCheck : MonoBehaviour
             //Adding Random Force
             transform.GetChild(i).GetComponentInChildren<MeshCollider>().enabled = false;
             transform.GetChild(i).GetComponentInChildren<Rigidbody>().isKinematic = false;
-            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, -2, 2), ForceMode.VelocityChange);
-            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-5, 5), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
+            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, 2, 2), ForceMode.VelocityChange);
+            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
         }
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1);
         Destroy(GetComponentInChildren<Transform>().gameObject);
         yield return null;
     }

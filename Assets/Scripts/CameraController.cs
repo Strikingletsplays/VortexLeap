@@ -1,13 +1,25 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     //For moving the camera
     public int platformCounter = 0;
-    private Vector3 targetPosition;
+
+    private bool _trigger = true;
+
+    //Next possition
+    private Vector3 nextPosition;
+    private Vector3 startPosition = new Vector3 (0,7,-6.5f);
 
     //offset
-    public Vector3 offset = new Vector3 (0,3,-7);
+    private float offset = 2.75f;
+
+    [SerializeField]
+    private BallController _ballController;
+
+    //minimum y of ball
+    public float minY;
 
     //Creating a Singleton
     public static CameraController singleton;
@@ -20,19 +32,27 @@ public class CameraController : MonoBehaviour
         else if (singleton != this)
             Destroy(gameObject);
 
-        targetPosition = transform.position;
+        minY = _ballController.transform.position.y;
+        nextPosition = transform.position;
     }
 
     private void FixedUpdate()
     {
-        //move to new platform
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 5f * Time.fixedDeltaTime);
-    }
-    public void RepositionCamera()
-    {
-        if (HelixController.singleton.spawnedPlatforms[platformCounter] != null)   //set cameras position to platform
+        if(_trigger && minY > _ballController.transform.position.y)
         {
-            targetPosition = HelixController.singleton.spawnedPlatforms[platformCounter].transform.position + offset;
+            minY = _ballController.transform.position.y;
         }
+
+        nextPosition.y = minY + offset;
+        transform.position = Vector3.Lerp(transform.position, nextPosition, 5f * Time.fixedDeltaTime);
+    }
+    public IEnumerator ResetCamera()
+    {
+        _trigger = false;
+        transform.position = startPosition;
+        minY = 5;
+        yield return new WaitForSeconds(1f);
+        _trigger = true;
+        yield return null;
     }
 }
