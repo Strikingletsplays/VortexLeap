@@ -19,6 +19,10 @@ public class HelixController : MonoBehaviour
     //Helix Distance
     private float helixDistance;
 
+    //Ball Controller
+    [SerializeField]
+    private BallController _ballController;
+
     //Creating a Singleton
     public static HelixController singleton;
 
@@ -136,6 +140,9 @@ public class HelixController : MonoBehaviour
                     deathParts.Add(randomPart);
                 }
             }
+            
         }
+        //Call (SpawnBall)
+        _ballController.SpawnBall();
     }
 }

@@ -10,7 +10,6 @@ public class CameraController : MonoBehaviour
 
     //Next possition
     private Vector3 nextPosition;
-    private Vector3 startPosition = new Vector3 (0,10,-8f);
 
     //offset
     private float offset = 2.75f;
@@ -24,6 +23,7 @@ public class CameraController : MonoBehaviour
     //Creating a Singleton
     public static CameraController singleton;
 
+
     private void Awake()
     {
         //Set singleton
@@ -33,12 +33,13 @@ public class CameraController : MonoBehaviour
             Destroy(gameObject);
 
         minY = _ballController.transform.position.y;
+        //For camera not to be (z=0)
         nextPosition = transform.position;
     }
 
     private void FixedUpdate()
     {
-        if(_trigger && minY > _ballController.transform.position.y)
+        if (_trigger && minY > _ballController.transform.position.y)
         {
             minY = _ballController.transform.position.y;
         }
@@ -49,8 +50,7 @@ public class CameraController : MonoBehaviour
     public IEnumerator ResetCamera()
     {
         _trigger = false;
-        transform.position = startPosition;
-        minY = 5;
+        minY = _ballController.transform.position.y;
         yield return new WaitForSeconds(1f);
         _trigger = true;
         yield return null;

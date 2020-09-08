@@ -31,9 +31,10 @@ public class BallController : MonoBehaviour
     [SerializeField]
     private GameObject _DiedCanvas;
 
-    void Awake()
+    public void SpawnBall()
     {
-        _startPos = new Vector3(0, 7, -1.4f);
+        _startPos = HelixController.singleton.spawnedPlatforms[0].transform.position + new Vector3(0, 2, -1.4f);
+        transform.position = _startPos;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -115,10 +116,10 @@ public class BallController : MonoBehaviour
 
     public void ResetBall()
     {
+        //Reset camera possition to start possition
         transform.position = _startPos;
-        //Reset platform counter (for %)
+        //Reset platform counter (for %) & Camera to starting position
         CameraController.singleton.platformCounter = 0;
-        //Reset Camera to starting position
         CameraController.singleton.gameObject.transform.position = new Vector3 (0, 7f, 0);
     }
 }
