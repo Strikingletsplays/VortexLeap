@@ -93,6 +93,9 @@ public class HelixController : MonoBehaviour
         float LevelDistance = helixDistance / stage.Platforms.Count;
         float spawnPosY = topTransform.localPosition.y;
 
+        //Index of bonus levels
+        int indexNum = Random.Range(0, 3);
+
         for (int i = 0; i < stage.Platforms.Count; i++)
         {
             //create platforms
@@ -106,15 +109,29 @@ public class HelixController : MonoBehaviour
             List<GameObject> disabledParts = new List<GameObject>();
 
             //Disabling parts in Platforms
-            while (disabledParts.Count < partsToDisable)
+            if (!(allStages[stageNumber].Platforms[i].deathPartCount == 0 && allStages[stageNumber].Platforms[i].partCount == 8))
             {
-                GameObject randomPart = platform.transform.GetChild(Random.Range(0, platform.transform.childCount)).gameObject;
-                if (!disabledParts.Contains(randomPart))
+                while (disabledParts.Count < partsToDisable)
                 {
+                    GameObject randomPart = platform.transform.GetChild(Random.Range(0, platform.transform.childCount)).gameObject;
+                    if (!disabledParts.Contains(randomPart))
+                    {
+                        randomPart.SetActive(false);
+                        disabledParts.Add(randomPart);
+                    }
+                }
+            }
+            else
+            {
+                //Make 4 disableparts next to eachother (MUST FIX!!)
+                while (disabledParts.Count < partsToDisable)
+                {
+                    GameObject randomPart = platform.transform.GetChild(indexNum).gameObject;
                     randomPart.SetActive(false);
                     disabledParts.Add(randomPart);
                 }
             }
+           
 
             //Coloring the left over parts with the stage color.
             List<GameObject> leftParts = new List<GameObject>();
