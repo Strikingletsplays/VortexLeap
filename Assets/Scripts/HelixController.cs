@@ -6,6 +6,7 @@ public class HelixController : MonoBehaviour
     //For Helix Rotation
     private Vector2 _lastTapPos;
     private Vector3 _startRotation;
+    private float delta;
 
     //Helix Platforms
     public Transform topTransform;
@@ -44,23 +45,24 @@ public class HelixController : MonoBehaviour
         _lastTapPos = Vector2.zero;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetMouseButton(0))
         {
             //current tap possition
             Vector2 curTapPos = Input.mousePosition;
 
-            if(_lastTapPos == Vector2.zero)
+            if (_lastTapPos == Vector2.zero)
             {
                 _lastTapPos = curTapPos;
             }
+            
             //how much you moved your finder tap?
-            float delta = _lastTapPos.x - curTapPos.x;
+            delta = _lastTapPos.x - curTapPos.x;
             _lastTapPos = curTapPos;
 
-            //Rotate Helix
-            transform.Rotate(Vector3.up * delta * 0.3f); // How fast will the cammera follow
+            //Rotate Helix (*0.35f to slow it down)
+            transform.Rotate(Vector3.up * delta * 0.35f); // How fast will the cammera follow
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -132,7 +134,7 @@ public class HelixController : MonoBehaviour
                     disabledParts.Add(randomPart);
                 }
             }
-           
+
 
             //Coloring the left over parts with the stage color.
             List<GameObject> leftParts = new List<GameObject>();
@@ -158,7 +160,7 @@ public class HelixController : MonoBehaviour
                     deathParts.Add(randomPart);
                 }
             }
-            
+
         }
         //Call (SpawnBall)
         _ballController.SpawnBall();

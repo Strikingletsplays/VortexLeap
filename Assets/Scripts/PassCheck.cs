@@ -57,7 +57,8 @@ public class PassCheck : MonoBehaviour
             transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
         }
         yield return new WaitForSeconds(1);
-        Destroy(GetComponentInChildren<Transform>().gameObject);
+        this.gameObject.SetActive(false);
+        //Destroy(GetComponentInChildren<Transform>().gameObject);
         yield return null;
     }
 }
