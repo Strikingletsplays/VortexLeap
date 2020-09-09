@@ -38,6 +38,7 @@ public class HelixController : MonoBehaviour
         helixDistance = topTransform.localPosition.y - goalTransform.localPosition.y - 0.1f;
         LoadStage(0);
     }
+
     public void ResetLTP()
     {
         _lastTapPos = Vector2.zero;
@@ -59,7 +60,7 @@ public class HelixController : MonoBehaviour
             _lastTapPos = curTapPos;
 
             //Rotate Helix
-            transform.Rotate(Vector3.up * delta * 0.5f);
+            transform.Rotate(Vector3.up * delta * 0.3f); // How fast will the cammera follow
         }
         if (Input.GetMouseButtonUp(0))
         {
