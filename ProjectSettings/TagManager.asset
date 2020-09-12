@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - AddScore
+  - SpeedPowerUp
   layers:
   - Default
   - TransparentFX

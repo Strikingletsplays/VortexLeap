@@ -65,7 +65,11 @@ public class Gamemanager : MonoBehaviour
         //CHange color of background of the stage
         Camera.main.backgroundColor = HelixController.singleton.allStages[currentStage].stageBackgroundColor;
         //Set Goal Color
-        _helixGoal.material.SetColor("_BaseColor",HelixController.singleton.allStages[currentStage].stageBallColor);
+        //_helixGoal.material.SetColor("_BaseColor",HelixController.singleton.allStages[currentStage].stageBallColor);
+    }
+    private void FixedUpdate()
+    {
+        _helixGoal.material.SetColor("_BaseColor", _ballController.GetComponent<Renderer>().material.color);
     }
     public void NextLevel()
     {

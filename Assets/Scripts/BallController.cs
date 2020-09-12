@@ -31,6 +31,9 @@ public class BallController : MonoBehaviour
     [SerializeField]
     private GameObject _DiedCanvas;
 
+    //PowerUps
+    public bool PowerupSuperSpeed = false;
+
     public void SpawnBall()
     {
         _startPos = HelixController.singleton.spawnedPlatforms[0].transform.position + new Vector3(0, 2, -1.4f);
@@ -47,6 +50,8 @@ public class BallController : MonoBehaviour
         {
             //Disable splash Paint
             showPaintSplash = false;
+            //Reset color of ball after collition
+            GetComponent<Renderer>().material.color = HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor;
             //Destroy Platform
             if (!collision.transform.GetComponent<Goal>())
             {
@@ -87,13 +92,18 @@ public class BallController : MonoBehaviour
         //play Ball Splash Particle System
         _ballSplash.GetComponent<SplashController>().MoveToPlatform(collision.transform);
         _ballSplash.Play();
-        //adding force to ball UP (bounce up)
-        _ballRb.velocity = Vector3.zero;
-        _ballRb.AddForce(Vector3.up * _impulseForce, ForceMode.Impulse);
+        //if you dont have SSPower-up, bounce the ball
+        if (!PowerupSuperSpeed)
+        {
+            //adding force to ball UP (bounce up)
+            _ballRb.velocity = Vector3.zero;
+            _ballRb.AddForce(Vector3.up * _impulseForce, ForceMode.Impulse);
+        }
 
         _ignoreNextCollision = true;
         Invoke("AllowCollision", .2f);
 
+        //Reset PP & SS
         perfectPass = 0;
         isSuperSpeedActive = false;
     }
@@ -105,8 +115,29 @@ public class BallController : MonoBehaviour
         {
             isSuperSpeedActive = true;
             _ballRb.AddForce(Vector3.down * 10, ForceMode.Impulse);
+            SSColorchangeBall();
             //make particles part! (todo)
         }
+        //Powerup SuperSpeed
+        if (PowerupSuperSpeed)
+        {
+            isSuperSpeedActive = true;
+            //change color to red
+            SSColorchangeBall();
+            //adding force to ball Down
+            _ballRb.AddForce(Vector3.down, ForceMode.Acceleration);
+            GetComponent<SphereCollider>().isTrigger = true;
+        }
+        else
+        {
+            //Enable collider
+            GetComponent<SphereCollider>().isTrigger = false;
+        }
+
+    }
+    private void SSColorchangeBall()
+    {
+        GetComponent<Renderer>().material.color = Color.Lerp(HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor, Color.red, 0.5f);
     }
     private void AllowCollision()
     {

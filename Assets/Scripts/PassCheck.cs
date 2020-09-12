@@ -46,19 +46,36 @@ public class PassCheck : MonoBehaviour
     }
     IEnumerator Destroy()
     {
-        //Destroy platform 
+        //disable the colliders
         transform.GetComponentInChildren<Collider>().enabled = false;
-        for (int i = 0; i < transform.childCount; i++)
+
+        if (!FindObjectOfType<BallController>().PowerupSuperSpeed)
         {
-            //Adding Random Force
-            transform.GetChild(i).GetComponentInChildren<MeshCollider>().enabled = false;
-            transform.GetChild(i).GetComponentInChildren<Rigidbody>().isKinematic = false;
-            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, 2, 2), ForceMode.VelocityChange);
-            transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
+            //Destroy platform 
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                //Adding Random Force
+                transform.GetChild(i).GetComponentInChildren<MeshCollider>().enabled = false;
+                transform.GetChild(i).GetComponentInChildren<Rigidbody>().isKinematic = false;
+                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, 2, 2), ForceMode.VelocityChange);
+                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
+            }
+        }
+        else
+        {
+            //Destroy platform 
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                //Adding Random Force
+                transform.GetChild(i).GetComponentInChildren<MeshCollider>().enabled = false;
+                transform.GetChild(i).GetComponentInChildren<Rigidbody>().isKinematic = false;
+                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, -10, 2), ForceMode.VelocityChange);
+                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
+            }
         }
         yield return new WaitForSeconds(1);
         this.gameObject.SetActive(false);
-        //Destroy(GetComponentInChildren<Transform>().gameObject);
-        yield return null;
+
+
     }
 }
