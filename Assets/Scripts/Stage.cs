@@ -10,6 +10,9 @@ public class Platform
 
     [Range(0, 11)]
     public int deathPartCount = 1;
+
+    [Range(0, 2)]
+    public int verticalParts = 0;
 }
 
 [CreateAssetMenu(fileName = "New Stage")]
@@ -19,5 +22,6 @@ public class Stage : ScriptableObject
     public Color stageBackgroundColor = Color.white;
     public Color stageLevelPartColor = Color.white;
     public Color stageBallColor = Color.white;
+    public Color deathPartColor = Color.white;
     public List<Platform> Platforms = new List<Platform>();
 }

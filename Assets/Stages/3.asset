@@ -16,54 +16,80 @@ MonoBehaviour:
   stageBackgroundColor: {r: 0.7686275, g: 0.64705884, b: 0.5686275, a: 1}
   stageLevelPartColor: {r: 0.3803922, g: 0.13333334, b: 0.31764707, a: 1}
   stageBallColor: {r: 0.9607844, g: 0.44705886, b: 0.2784314, a: 1}
+  deathPartColor: {r: 0.7019608, g: 0.2392157, b: 0.29803923, a: 1}
   Platforms:
   - partCount: 7
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 1
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
-  - partCount: 8
-    deathPartCount: 1
-  - partCount: 7
-    deathPartCount: 2
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0
+  - partCount: 8
+    deathPartCount: 1
+    verticalParts: 0
+  - partCount: 7
+    deathPartCount: 2
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 1
+    verticalParts: 1
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0

@@ -16,64 +16,95 @@ MonoBehaviour:
   stageBackgroundColor: {r: 0.6745098, g: 0.89019614, b: 0.6392157, a: 1}
   stageLevelPartColor: {r: 0.50980395, g: 0.7137255, b: 0.054901965, a: 1}
   stageBallColor: {r: 0.4156863, g: 0.3019608, b: 0.8117648, a: 1}
+  deathPartColor: {r: 0.8980393, g: 0.70980394, b: 0.08627451, a: 1}
   Platforms:
   - partCount: 9
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 4
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 6
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 6
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 6
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 6
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 1
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 6
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 6
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 3
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0

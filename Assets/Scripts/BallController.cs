@@ -71,8 +71,7 @@ public class BallController : MonoBehaviour
             showPaintSplash = true;
 
             //check if ball hit a red area and restart lvl
-            DeathPart deathPart = collision.transform.GetComponent<DeathPart>();
-            if (deathPart)
+            if (collision.transform.GetComponent<DeathPart>())
             {
                 Time.timeScale = 0;
                 _DiedCanvas.SetActive(true);

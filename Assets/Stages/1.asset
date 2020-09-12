@@ -16,80 +16,119 @@ MonoBehaviour:
   stageBackgroundColor: {r: 0.8705883, g: 0.80392164, b: 0.73333335, a: 1}
   stageLevelPartColor: {r: 0.32941177, g: 0.3529412, b: 0.5294118, a: 1}
   stageBallColor: {r: 0.34117648, g: 0.77647066, b: 0.92549026, a: 1}
+  deathPartColor: {r: 1, g: 0.597088, b: 0, a: 1}
   Platforms:
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 0
+    verticalParts: 0

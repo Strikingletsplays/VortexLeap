@@ -16,38 +16,56 @@ MonoBehaviour:
   stageBackgroundColor: {r: 0.9215687, g: 0.9176471, b: 0.9215687, a: 1}
   stageLevelPartColor: {r: 0, g: 0, b: 0, a: 1}
   stageBallColor: {r: 0.97647065, g: 0.7725491, b: 0.41960788, a: 1}
+  deathPartColor: {r: 1, g: 0, b: 0, a: 1}
   Platforms:
   - partCount: 9
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 4
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 5
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 6
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 0
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 8
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 2
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 7
     deathPartCount: 1
+    verticalParts: 0
   - partCount: 9
     deathPartCount: 1
+    verticalParts: 0

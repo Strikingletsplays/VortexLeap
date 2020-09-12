@@ -13,6 +13,9 @@ public class HelixController : MonoBehaviour
     public Transform goalTransform;
     public GameObject helicPlatformPrefab;
     public List<GameObject> spawnedPlatforms = new List<GameObject>();
+    
+    //Creating Vertical Parts
+    public List<GameObject> verticalParts = new List<GameObject>();
 
     //To load next stages
     public List<Stage> allStages = new List<Stage>();
@@ -84,13 +87,19 @@ public class HelixController : MonoBehaviour
         //Reset helix rotation
         transform.localEulerAngles = _startRotation;
 
-        //destroy old lvl if there exist
+        //destroy old platforms if there exist
         foreach (GameObject go in spawnedPlatforms)
         {
             Destroy(go);
         }
-        //Recreate the platform list
+        //destroy old Vertical Parts if there exist
+        foreach (GameObject go in verticalParts)
+        {
+            Destroy(go);
+        }
+        //Recreate the platform & verticalPart list
         spawnedPlatforms = new List<GameObject>();
+        verticalParts = new List<GameObject>();
 
         //create new platforms variables
         float LevelDistance = helixDistance / stage.Platforms.Count;
@@ -111,9 +120,10 @@ public class HelixController : MonoBehaviour
             int partsToDisable = 12 - stage.Platforms[i].partCount;
             List<GameObject> disabledParts = new List<GameObject>();
 
-            //Disabling parts in Platforms
+            //Chek if not-bonus level
             if (!(allStages[stageNumber].Platforms[i].deathPartCount == 0 && allStages[stageNumber].Platforms[i].partCount == 8))
             {
+                //Disabling parts in Platforms
                 while (disabledParts.Count < partsToDisable)
                 {
                     GameObject randomPart = platform.transform.GetChild(Random.Range(0, platform.transform.childCount)).gameObject;
@@ -150,7 +160,7 @@ public class HelixController : MonoBehaviour
             //Creating the Death Parts
             List<GameObject> deathParts = new List<GameObject>();
 
-            while (deathParts.Count < stage.Platforms[i].deathPartCount && i != 0)
+            while (deathParts.Count < stage.Platforms[i].deathPartCount)
             {
                 GameObject randomPart = leftParts[Random.Range(0, leftParts.Count)];
                 if (!deathParts.Contains(randomPart))
@@ -161,6 +171,17 @@ public class HelixController : MonoBehaviour
                 }
             }
 
+            //Spawn Vetrical Parts
+            while (verticalParts.Count < stage.Platforms[i].verticalParts)
+            {
+                GameObject randomPart = leftParts[Random.Range(0, leftParts.Count)];
+                if (!verticalParts.Contains(randomPart))
+                {
+                    //Enable Vertical Part of platform
+                    randomPart.transform.GetChild(0).gameObject.SetActive(true);
+                    verticalParts.Add(randomPart);
+                }
+            }
         }
         //Call (SpawnBall)
         _ballController.SpawnBall();

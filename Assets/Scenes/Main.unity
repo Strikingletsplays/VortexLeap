@@ -1665,6 +1665,8 @@ MonoBehaviour:
   helicPlatformPrefab: {fileID: 5575061784588326417, guid: cea4df82ec2406c419c00e0810929768,
     type: 3}
   spawnedPlatforms: []
+  verticalPart: {fileID: 420365699360430220, guid: 1d8b9c8427a76ff4389937c1aa7f3a7e,
+    type: 3}
   allStages:
   - {fileID: 11400000, guid: 7d0a6341e19a8cb41a71feff785811e6, type: 2}
   - {fileID: 11400000, guid: 1101b9f74f2b4e3459bc37e9ca64b422, type: 2}
