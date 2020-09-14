@@ -18,6 +18,10 @@ public class BallController : MonoBehaviour
     public int perfectPass = 0;
     public bool isSuperSpeedActive = false;
 
+    //Animator
+    [SerializeField]
+    private Animator _ballAnimator;
+
     //For paint splash
     private bool showPaintSplash = true;
     [SerializeField]
@@ -56,14 +60,16 @@ public class BallController : MonoBehaviour
             if (!collision.transform.GetComponent<Goal>())
             {
                 Transform parent = collision.transform.parent;
-                //change platform collor to Ball color Before destroy
+                //change platform collor to Ball color and add torque and force!
                 for (int i=0; i < collision.transform.parent.childCount; i++)
                 {
-                    parent.GetChild(i).GetComponent<Renderer>().material.color = HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor;
-                    parent.GetChild(i).GetComponent<MeshCollider>().enabled = false;
-                    parent.GetChild(i).GetComponent<Rigidbody>().isKinematic = false;
-                    parent.GetChild(i).GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
-                    parent.GetChild(i).GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
+                    Transform platform = parent.GetChild(i);
+                    Rigidbody _rb = platform.GetComponent<Rigidbody>();
+                    platform.GetComponent<Renderer>().material.color = HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor;
+                    platform.GetComponent<MeshCollider>().enabled = false;
+                    _rb.isKinematic = false;
+                    _rb.AddTorque(new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
+                    _rb.AddForce(new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
                 }
                 Destroy(parent.gameObject, 2);
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
@@ -85,7 +91,7 @@ public class BallController : MonoBehaviour
 
         if (showPaintSplash && !collision.transform.GetComponent<Goal>())
         {
-            GameObject splash  = Instantiate(splashPaint, new Vector3 (transform.position.x, transform.position.y -0.14f , transform.position.z), Quaternion.Euler(new Vector3 (90, Random.Range(0,360) ,0)));
+            GameObject splash  = Instantiate(splashPaint, new Vector3(transform.position.x, collision.transform.position.y + 0.33f, transform.position.z), Quaternion.Euler(new Vector3 (90, Random.Range(0,360) ,0)));
             splash.transform.parent = collision.transform;
         }
 
@@ -106,6 +112,8 @@ public class BallController : MonoBehaviour
         //Reset PP & SS
         perfectPass = 0;
         isSuperSpeedActive = false;
+        //Set animator bool value to false
+        _ballAnimator.SetBool("SuperSpeed", false);
     }
 
     private void FixedUpdate()
@@ -138,6 +146,8 @@ public class BallController : MonoBehaviour
     private void SSColorchangeBall()
     {
         GetComponent<Renderer>().material.color = Color.Lerp(HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor, Color.red, 0.5f);
+        //Set animator SuperSpeed value to true
+        _ballAnimator.SetBool("SuperSpeed", true);
     }
     private void AllowCollision()
     {

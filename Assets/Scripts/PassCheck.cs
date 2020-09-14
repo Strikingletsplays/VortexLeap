@@ -10,7 +10,7 @@ public class PassCheck : MonoBehaviour
 
     private void Awake()
     {
-        _addScore = FindObjectOfType<Animator>().gameObject;
+        _addScore = GameObject.FindGameObjectWithTag("AddScore");
         _addScoreAnim = _addScore.GetComponent<Animator>();
         _addScoreText = _addScore.GetComponent<TextMeshProUGUI>();
     }
@@ -54,11 +54,13 @@ public class PassCheck : MonoBehaviour
             //Destroy platform 
             for (int i = 0; i < transform.childCount; i++)
             {
+                Transform platform = transform.GetChild(i);
+                Rigidbody _rb = platform.GetComponent<Rigidbody>();
                 //Adding Random Force
-                transform.GetChild(i).GetComponentInChildren<MeshCollider>().enabled = false;
-                transform.GetChild(i).GetComponentInChildren<Rigidbody>().isKinematic = false;
-                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, 2, 2), ForceMode.VelocityChange);
-                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
+                platform.GetComponentInChildren<MeshCollider>().enabled = false;
+                _rb.isKinematic = false;
+                _rb.AddForce(new Vector3(0, 2, 2), ForceMode.VelocityChange);
+                _rb.AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
             }
         }
         else
@@ -66,11 +68,13 @@ public class PassCheck : MonoBehaviour
             //Destroy platform 
             for (int i = 0; i < transform.childCount; i++)
             {
+                Transform platform = transform.GetChild(i);
+                Rigidbody _rb = platform.GetComponent<Rigidbody>();
                 //Adding Random Force
-                transform.GetChild(i).GetComponentInChildren<MeshCollider>().enabled = false;
-                transform.GetChild(i).GetComponentInChildren<Rigidbody>().isKinematic = false;
-                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddForce(new Vector3(0, -10, 2), ForceMode.VelocityChange);
-                transform.GetChild(i).GetComponentInChildren<Rigidbody>().AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
+                platform.GetComponentInChildren<MeshCollider>().enabled = false;
+                _rb.isKinematic = false;
+                _rb.AddForce(new Vector3(0, -10, 2), ForceMode.VelocityChange);
+                _rb.AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
             }
         }
         yield return new WaitForSeconds(1);
