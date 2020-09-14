@@ -6,6 +6,9 @@ public class CameraController : MonoBehaviour
     //For moving the camera
     public int platformCounter = 0;
 
+    [SerializeField]
+    private float _cameraSpeed;
+
     private bool _trigger = true;
 
     //Next possition
@@ -45,7 +48,7 @@ public class CameraController : MonoBehaviour
         }
 
         nextPosition.y = minY + offset;
-        transform.position = Vector3.Lerp(transform.position, nextPosition, 5f * Time.fixedDeltaTime);
+        transform.position = Vector3.Lerp(transform.position, nextPosition, _cameraSpeed * Time.fixedDeltaTime);
     }
     public IEnumerator ResetCamera()
     {

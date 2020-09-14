@@ -27,6 +27,10 @@ public class HelixController : MonoBehaviour
     [SerializeField]
     private BallController _ballController;
 
+    //Speed PowerUp
+    [SerializeField]
+    private GameObject _speedPowerUp;
+
     //Creating a Singleton
     public static HelixController singleton;
 
@@ -76,6 +80,9 @@ public class HelixController : MonoBehaviour
     {
         Stage stage = allStages[Mathf.Clamp(stageNumber, 0, allStages.Count - 1)];
 
+        //Index of start of desabled parts
+        int indexNum = Random.Range(0, 11);
+
         if (stage == null)
         {
             Debug.LogError("No stage " + stageNumber + " found in allStages List. Are all stages assined in the list?");
@@ -105,9 +112,6 @@ public class HelixController : MonoBehaviour
         float LevelDistance = helixDistance / stage.Platforms.Count;
         float spawnPosY = topTransform.localPosition.y;
 
-        //Index of bonus levels
-        int indexNum = Random.Range(0, 3);
-
         for (int i = 0; i < stage.Platforms.Count; i++)
         {
             //create platforms
@@ -121,7 +125,7 @@ public class HelixController : MonoBehaviour
             List<GameObject> disabledParts = new List<GameObject>();
 
             //Chek if not-bonus level
-            if (!(allStages[stageNumber].Platforms[i].deathPartCount == 0 && allStages[stageNumber].Platforms[i].partCount == 8))
+            if (!allStages[stageNumber].isBonus)
             {
                 //Disabling parts in Platforms
                 while (disabledParts.Count < partsToDisable)
@@ -134,14 +138,15 @@ public class HelixController : MonoBehaviour
                     }
                 }
             }
-            else
+            else //(BONUS LEVEL)
             {
-                //Make 4 disableparts next to eachother (MUST FIX!!)
-                while (disabledParts.Count < partsToDisable)
+                //Make 3 disableparts next to eachother (MUST FIX!!)
+                int randomSeed = Random.Range(0, 2);
+                for (int j = 0; j < 4; j++)
                 {
-                    GameObject randomPart = platform.transform.GetChild(indexNum).gameObject;
-                    randomPart.SetActive(false);
-                    disabledParts.Add(randomPart);
+                    GameObject partToDisable = platform.transform.GetChild(randomSeed).gameObject;
+                    randomSeed++;
+                    partToDisable.SetActive(false);
                 }
             }
 

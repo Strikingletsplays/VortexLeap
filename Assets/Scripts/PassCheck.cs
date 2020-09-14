@@ -32,17 +32,14 @@ public class PassCheck : MonoBehaviour
             _addScoreAnim.SetBool("AddScore", true);
         }
 
-        //Increse Perfect Pass value by 1
-        FindObjectOfType<BallController>().perfectPass++;
-        
-        //Move camera if there is a next platform
-        if (CameraController.singleton.platformCounter < HelixController.singleton.spawnedPlatforms.Count)
+        BallController ball = FindObjectOfType<BallController>();
+        if (!ball.isSuperSpeedActive)
         {
-            //CameraController.singleton.RepositionCamera();
+            //Increse Perfect Pass value by 1
+            ball.perfectPass++;
         }
         //Destroy platform
         StartCoroutine(Destroy());
-        
     }
     IEnumerator Destroy()
     {
@@ -57,7 +54,7 @@ public class PassCheck : MonoBehaviour
                 Transform platform = transform.GetChild(i);
                 Rigidbody _rb = platform.GetComponent<Rigidbody>();
                 //Adding Random Force
-                platform.GetComponentInChildren<MeshCollider>().enabled = false;
+                platform.GetChild(1).GetComponent<MeshCollider>().enabled = false;
                 _rb.isKinematic = false;
                 _rb.AddForce(new Vector3(0, 2, 2), ForceMode.VelocityChange);
                 _rb.AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
@@ -71,7 +68,7 @@ public class PassCheck : MonoBehaviour
                 Transform platform = transform.GetChild(i);
                 Rigidbody _rb = platform.GetComponent<Rigidbody>();
                 //Adding Random Force
-                platform.GetComponentInChildren<MeshCollider>().enabled = false;
+                platform.GetChild(1).GetComponent<MeshCollider>().enabled = false;
                 _rb.isKinematic = false;
                 _rb.AddForce(new Vector3(0, -10, 2), ForceMode.VelocityChange);
                 _rb.AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);

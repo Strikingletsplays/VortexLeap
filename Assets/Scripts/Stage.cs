@@ -23,5 +23,6 @@ public class Stage : ScriptableObject
     public Color stageLevelPartColor = Color.white;
     public Color stageBallColor = Color.white;
     public Color deathPartColor = Color.white;
+    public Boolean isBonus = false;
     public List<Platform> Platforms = new List<Platform>();
 }

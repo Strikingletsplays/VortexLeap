@@ -1556,6 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformCounter: 0
+  _cameraSpeed: 10
   _ballController: {fileID: 67301279}
   minY: 0
 --- !u!114 &963194230
@@ -1710,6 +1711,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4abc6947e499d054bb31f7081ef6a52a, type: 2}
   - {fileID: 11400000, guid: 497ede32869d15841ad22740d3131ad8, type: 2}
   _ballController: {fileID: 67301279}
+  _speedPowerUp: {fileID: 1855892071230596154, guid: 3d07ab45aa1dba44b94e33206b8f04cc,
+    type: 3}
 --- !u!1 &1032775836
 GameObject:
   m_ObjectHideFlags: 0

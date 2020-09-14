@@ -60,13 +60,17 @@ public class BallController : MonoBehaviour
             if (!collision.transform.GetComponent<Goal>())
             {
                 Transform parent = collision.transform.parent;
+
+                //Dissable the trigger collider
+                parent.GetComponent<Collider>().enabled = false;
+
                 //change platform collor to Ball color and add torque and force!
-                for (int i=0; i < collision.transform.parent.childCount; i++)
+                for (int i=0; i < parent.childCount; i++)
                 {
-                    Transform platform = parent.GetChild(i);
-                    Rigidbody _rb = platform.GetComponent<Rigidbody>();
-                    platform.GetComponent<Renderer>().material.color = HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor;
-                    platform.GetComponent<MeshCollider>().enabled = false;
+                    Transform part = parent.GetChild(i);
+                    Rigidbody _rb = part.GetComponent<Rigidbody>();
+                    part.GetComponent<Renderer>().material.color = HelixController.singleton.allStages[Gamemanager.singleton.currentStage].stageBallColor;
+                    part.GetChild(1).GetComponent<MeshCollider>().enabled = false;
                     _rb.isKinematic = false;
                     _rb.AddTorque(new Vector3(Random.Range(-5,5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
                     _rb.AddForce(new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), Random.Range(-5, 5)), ForceMode.VelocityChange);
@@ -122,7 +126,7 @@ public class BallController : MonoBehaviour
         if(perfectPass >= 3 && !isSuperSpeedActive)
         {
             isSuperSpeedActive = true;
-            _ballRb.AddForce(Vector3.down * 10, ForceMode.Impulse);
+            _ballRb.AddForce(Vector3.down * 0.5f, ForceMode.Impulse);
             SSColorchangeBall();
             //make particles part! (todo)
         }
