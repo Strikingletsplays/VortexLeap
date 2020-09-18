@@ -40,7 +40,7 @@ public class BallController : MonoBehaviour
 
     public void SpawnBall()
     {
-        _startPos = HelixController.singleton.spawnedPlatforms[0].transform.position + new Vector3(0, 2, -1.4f);
+        _startPos = HelixController.singleton.spawnedPlatforms[0].transform.position + new Vector3(0, 2, -1.6f);
         transform.position = _startPos;
     }
 
@@ -95,7 +95,7 @@ public class BallController : MonoBehaviour
 
         if (showPaintSplash && !collision.transform.GetComponent<Goal>())
         {
-            GameObject splash  = Instantiate(splashPaint, new Vector3(transform.position.x, collision.transform.position.y + 0.33f, transform.position.z), Quaternion.Euler(new Vector3 (90, Random.Range(0,360) ,0)));
+            GameObject splash  = Instantiate(splashPaint, new Vector3(transform.position.x, collision.transform.position.y + 0.38f, transform.position.z), Quaternion.Euler(new Vector3 (90, Random.Range(0,360) ,0)));
             splash.transform.parent = collision.transform;
         }
 
