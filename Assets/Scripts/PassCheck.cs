@@ -16,30 +16,33 @@ public class PassCheck : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Increment camera target platform
-        CameraController.singleton.platformCounter++;
-        //Adding the lvl value to score
-        Gamemanager.singleton.AddScore(Gamemanager.singleton.currentStage + 1);
-        //Play AnimScore 
-        if (_addScoreAnim.GetBool("AddScore"))
+        if (other.CompareTag("Player"))
         {
-            _addScoreText.text = "+" + (int.Parse(_addScoreText.text) + (Gamemanager.singleton.currentStage + 1)).ToString();
-            _addScoreAnim.Play("AddScore",-1,0);
-        }
-        else
-        {
-            _addScoreText.text = "+" + (Gamemanager.singleton.currentStage + 1).ToString();
-            _addScoreAnim.SetBool("AddScore", true);
-        }
+            //Increment camera target platform
+            CameraController.singleton.platformCounter++;
+            //Adding the lvl value to score
+            Gamemanager.singleton.AddScore(Gamemanager.singleton.currentStage + 1);
+            //Play AnimScore 
+            if (_addScoreAnim.GetBool("AddScore"))
+            {
+                _addScoreText.text = "+" + (int.Parse(_addScoreText.text) + (Gamemanager.singleton.currentStage + 1)).ToString();
+                _addScoreAnim.Play("AddScore", -1, 0);
+            }
+            else
+            {
+                _addScoreText.text = "+" + (Gamemanager.singleton.currentStage + 1).ToString();
+                _addScoreAnim.SetBool("AddScore", true);
+            }
 
-        BallController ball = FindObjectOfType<BallController>();
-        if (!ball.isSuperSpeedActive)
-        {
-            //Increse Perfect Pass value by 1
-            ball.perfectPass++;
+            BallController ball = FindObjectOfType<BallController>();
+            if (!ball.isSuperSpeedActive)
+            {
+                //Increse Perfect Pass value by 1
+                ball.perfectPass++;
+            }
+            //Destroy platform
+            StartCoroutine(Destroy());
         }
-        //Destroy platform
-        StartCoroutine(Destroy());
     }
     IEnumerator Destroy()
     {
@@ -70,7 +73,7 @@ public class PassCheck : MonoBehaviour
                 //Adding Random Force
                 platform.GetChild(1).GetComponent<MeshCollider>().enabled = false;
                 _rb.isKinematic = false;
-                _rb.AddForce(new Vector3(0, -10, 2), ForceMode.VelocityChange);
+                _rb.AddForce(new Vector3(0, -10, 2), ForceMode.VelocityChange); //Add more force
                 _rb.AddTorque(new Vector3(Random.Range(-2, 2), 0, Random.Range(0, 1)), ForceMode.VelocityChange);
             }
         }
