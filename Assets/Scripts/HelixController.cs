@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 
 public class HelixController : MonoBehaviour
@@ -128,21 +129,49 @@ public class HelixController : MonoBehaviour
             if (!allStages[stageNumber].isBonus)
             {
                 //Disabling parts in Platforms
-                while (disabledParts.Count < partsToDisable)
+                while (disabledParts.Count <= partsToDisable)
                 {
-                    GameObject randomPart = platform.transform.GetChild(Random.Range(0, platform.transform.childCount)).gameObject;
+                    int indexPart = Random.Range(0, platform.transform.childCount);
+                    GameObject randomPart = platform.transform.GetChild(indexPart).gameObject;
                     if (!disabledParts.Contains(randomPart))
                     {
                         randomPart.SetActive(false);
                         disabledParts.Add(randomPart);
+
+                        //if indexPart is not last, increment
+                        if (indexPart != 11)
+                        {
+                            randomPart = platform.transform.GetChild(++indexPart).gameObject;
+                            //if naibor not disabled
+                            if (!disabledParts.Contains(randomPart))
+                            {
+                                //Disable part next to previous part
+                                randomPart.SetActive(false);
+                                disabledParts.Add(randomPart);
+                            }
+                            else
+                            {
+                                if (indexPart != 0)
+                                {
+                                    randomPart = platform.transform.GetChild(--indexPart).gameObject;
+                                    if (!disabledParts.Contains(randomPart))
+                                    {
+                                        //Disable part before the previous part
+                                        randomPart.SetActive(false);
+                                        disabledParts.Add(randomPart);
+                                    }
+                                }   
+                            }
+                        }
                     }
                 }
             }
             else //(BONUS LEVEL)
             {
-                //Make 3 disableparts next to eachother (MUST FIX!!)
-                int randomSeed = Random.Range(0, 2);
-                for (int j = 0; j < 4; j++)
+                //indexNum number of part to start disabling
+                int randomSeed = Random.Range(0, 3);
+                //How big the gap will be (3 parts)
+                for (int j = 0; j < 3; j++)
                 {
                     GameObject partToDisable = platform.transform.GetChild(randomSeed).gameObject;
                     randomSeed++;
