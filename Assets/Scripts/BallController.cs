@@ -78,6 +78,8 @@ public class BallController : MonoBehaviour
                 Destroy(parent.gameObject, 2);
                 //Add SCORE!!           (Later make Extra score due to superspeed!!)
                 Gamemanager.singleton.AddScore(Gamemanager.singleton.currentStage + 1);
+                //Increment camera target platform
+                CameraController.singleton.platformCounter++;
             }
         }
         else

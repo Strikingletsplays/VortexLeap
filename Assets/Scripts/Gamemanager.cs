@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.UI;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Gamemanager : MonoBehaviour
     private ParticleSystem _ballSplash;
     [SerializeField]
     private Renderer _helixGoal;
+    [SerializeField]
+    private Image _backgroundTint;
 
     //Score & level
     public int bestScore;
@@ -62,10 +65,10 @@ public class Gamemanager : MonoBehaviour
         _ballSplash.startColor = HelixController.singleton.allStages[currentStage].stageBallColor;
         //Seting the Helix Cylinder color
         _helixRenderer.material.SetColor("_BaseColor", HelixController.singleton.allStages[currentStage].helixCylinderColor);
-        //CHange color of background of the stage
+        //Change color of background of the stage
         Camera.main.backgroundColor = HelixController.singleton.allStages[currentStage].stageBackgroundColor;
-        //Set Goal Color
-        //_helixGoal.material.SetColor("_BaseColor",HelixController.singleton.allStages[currentStage].stageBallColor);
+        //Set Background Color Tint
+        _backgroundTint.color = HelixController.singleton.allStages[currentStage].stageBackgroundColor;
     }
     private void FixedUpdate()
     {
